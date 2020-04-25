@@ -151,7 +151,7 @@ class App extends Component {
             <ThemeProvider theme={theme}>
               <AppBar position="static">
                 <Toolbar className={classes.toolBar}>
-                  <div>YouTube</div>
+                  <div>Not YouTube</div>
                   <div className={classes.search}>
                     <div className={classes.searchIcon}>
                       <SearchIcon />
@@ -186,7 +186,7 @@ class App extends Component {
                 </Toolbar>
               </AppBar>
               <div className="content-container-div">
-                <Sidenav></Sidenav>
+                {/*<Sidenav></Sidenav>*/}
                 <Switch>
                   <Route to="/" component={Home}></Route>
                   <Route to="/"></Route>

@@ -1,13 +1,11 @@
 import React from 'react';
-import Thum
-import picture from '../../assets/thumbnail.jpg';
+import Thumbnail from '../thumbnail';
+import picture from "../../assets/thumbnail.jpg"
 
 function Feed(props) {
-  const videos = [];
-
   return (
     <div>
-
+      <Thumbnail image={picture} title="example video" />
     </div>
   )
 }

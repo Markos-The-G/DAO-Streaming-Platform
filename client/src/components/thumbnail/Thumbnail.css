@@ -1,3 +1,12 @@
-.video_title {
+.feed_video > .video_title {
   text-overflow: ellipsis;
+  color: white;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  max-height: 4rem;
+}
+
+.feed_video > .feed_video {
+  height: 4em;
+  width: auto;
 }
