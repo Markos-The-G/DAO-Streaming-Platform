@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PublishIcon from '@material-ui/icons/Publish';
 import './Upload.css';
+import ipfs from './ipfs';
 
 class Upload extends Component {
   constructor(props) {
@@ -33,13 +34,37 @@ class Upload extends Component {
     //insert code to upload video
   }
 
-  onSubmit = () => {
-      console.log("on submit...")
+  captureFile = (event) => {
+    event.preventDefault();
+    
+    const file = event.target.files[0]
+    const reader = new window.FileReader();
+    reader.readAsArrayBuffer(file);
+    reader.onloadend = () => {
+        this.setState({
+            buffer: Buffer(reader.result)
+        })
+        console.log("buffer:", this.state.buffer)
+
+    }
+
   }
 
-  captureFile = () => {
-    console.log("capturing file...")
+  onSubmit = (event) => {
+    event.preventDefault();
+    ipfs.files.add(this.state.buffer, (err, result) => {
+        if (err) {
+            console.log(err);
+            return
+        }
+        this.setState({
+            ipfsHash: result[0].hash
+        })
+        console.log('ipfs:', this.state.ipfsHash)
+    })
+
   }
+
 
   render() {
     return (

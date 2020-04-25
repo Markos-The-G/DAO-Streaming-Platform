@@ -35,7 +35,8 @@ class ModVid extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            violence : true
+            violence : false,
+            nudity : false
         }
     }
     render() { 
@@ -59,49 +60,49 @@ class ModVid extends Component {
                                 name="checkedB"
                                 color="secondary"
                                 />
-                                Violence
+                                Nudity
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
                                 name="checkedB"
                                 color="secondary"
                                 />
-                                Violence
+                                Dangerous
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
                                 name="checkedB"
                                 color="secondary"
                                 />
-                                Violence
+                                Hateful
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
                                 name="checkedB"
                                 color="secondary"
                                 />
-                                Violence
+                                Harassment
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
                                 name="checkedB"
                                 color="secondary"
                                 />
-                                Violence
+                                Spam
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
                                 name="checkedB"
                                 color="secondary"
                                 />
-                                Violence
+                                Threats
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
                                 name="checkedB"
                                 color="secondary"
                                 />
-                                Violence
+                                Privacy
                             </div>  
                         </div>
                         <div>
