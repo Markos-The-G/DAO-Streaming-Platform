@@ -2,7 +2,23 @@ import React, { Component } from "react";
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
 
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom"
+
+import Home from './pages/home.js'
+
+
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+
+
 import "./App.css";
+
+
 
 class App extends Component {
   state = { storageValue: 0, web3: null, accounts: null, contract: null };
@@ -50,23 +66,33 @@ class App extends Component {
 
   render() {
     if (!this.state.web3) {
-      return <div>Loading Web3, accounts, and contract...</div>;
+      return (<div>NOT LOGGED IN</div>)
     }
-    return (
-      <div className="App">
-        <h1>Good to Go! NIGGER</h1>
-        <p>Your Truffle Box is installed and ready.</p>
-        <h2>Smart Contract Example</h2>
-        <p>
-          If your contracts compiled and migrated successfully, below will show
-          a stored value of 5 (by default).
-        </p>
-        <p>
-          Try changing the value stored on <strong>line 40</strong> of App.js.
-        </p>
-        <div>The stored value is: {this.state.storageValue}</div>
-      </div>
-    );
+    else {
+      return (
+        <div className="app-div">
+          <BrowserRouter>
+            <AppBar position="static">
+              <Toolbar>
+                <IconButton edge="start" color="inherit" aria-label="menu">
+                  <MenuIcon />
+                </IconButton>
+                <Typography variant="h6" >
+                  News
+                </Typography>
+                <Button color="inherit">Login</Button>
+              </Toolbar>
+            </AppBar>
+
+            <Switch>
+              <Route to="/" component={Home}></Route>
+              <Route to="/"></Route>
+              <Route to="/"></Route>
+            </Switch>
+          </BrowserRouter >
+        </div >
+      )
+    }
   }
 }
 
