@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 const axios = require('axios')
-const Web3 = require('web3')
+const ethers = require('ethers');
 const projectID = "920def75f3a245e981a1d9b60033574a";
-const web3 = new Web3('https://rinkeby.infura.io/v3/920def75f3a245e981a1d9b60033574a')
-const contractAddress = '0x1e82264b326b611102f850c58c4e61f3f09f41a7' // markos contract
+//const web3 = new Web3('HTTP://127.0.0.1:7545')
+const contractAddress = '0x2bA68C2c416Bf71eb051eF0a68ABBD3366995601' // markos contract
 const contractABI = [
   {
     "constant": false,
@@ -39,21 +39,23 @@ const contractABI = [
   }
 ];
 
-function myFunction(myParam) {
-    var contract = new web3.eth.Contract(contractABI, contractAddress)
-    var callData = contract.methods.get(myParam).call()
-    callData.then(function(result) {
-        console.log(result)
-    })
-}
+// function myFunction(myParam) {
+//     var contract = new web3.eth.Contract(contractABI, contractAddress)
+//     var callData = contract.methods.set(myParam).call()
+//     callData.then(function(result) {
+//         return (result)
+//     })
+// }
 
-function settt() {
-  var contract = new web3.eth.Contract(contractABI, contractAddress)
-  var callData = contract.methods.get().call()
-  callData.then(function(result) {
-      console.log(result)
-  })
-}
+//const SimpleStorage = web3.eth.contract(contractABI, contractAddress);
+
+// function settt() {
+//   var contract = new web3.eth.Contract(contractABI, contractAddress)
+//   var callData = contract.methods.get().call()
+//   callData.then(function(result) {
+//       return (result)
+//   })
+// }
 
 // const getFunction = () => {
 //     var contract = new web3.eth.Contract(contractABI, contractAddress)
@@ -75,31 +77,17 @@ function settt() {
 
 // importing ipfs
 
+const provider = new ethers.providers.Web3Provider(window.ethereum)
 
+const registry = new ethers.Contract('SimpleStorage', contractABI, provider.getSigner());
 
 // creating a new uploaded post
 router.post('/', function (req, res, next) {
-
-  async function makePostRequest() {
-    const network = 'https://mainnet.infura.io/v3/920def75f3a245e981a1d9b60033574a'
-    let res = await axios.post(network);
-    const result = settt();
-    res.send(result);
-
-
-  makePostRequest();
-
+  const result = settt()
   // const currentHash = getFunction()
   // setFunction(req.body.hash);
-
-
-
-  
-  }
-
-
-
-  res.send(req.body.hash);
+  const finalResult = (result + req.body.hash)
+  res.send(finalResult);
   // res.send(currentHash);
 });
 

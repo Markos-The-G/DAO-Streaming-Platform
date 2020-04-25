@@ -1,0 +1,17 @@
+.guidelines-container{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.expansion-container{
+    width: 40%;
+    margin: 20px;
+}
+
+.guidelines-line{
+    width: 50%;
+    background: red;
+    height: 5px;
+}

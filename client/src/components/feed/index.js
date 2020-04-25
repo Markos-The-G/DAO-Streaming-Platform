@@ -33,6 +33,12 @@ function Feed(props) {
           <Thumbnail image={picture} title="example video" channel="oi mate" />
         </Grid>
         <Grid item>
+          <Thumbnail image={picture} title="example video" channel="oi mate" />
+        </Grid>
+        <Grid item>
+          <Thumbnail image={picture} title="example video" channel="oi mate" />
+        </Grid>
+        <Grid item>
           <Thumbnail
             image={picture}
             title="example video dsfsdfsdf  sdfsdfsd sdfsdf"

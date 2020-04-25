@@ -55,6 +55,12 @@ class ModVid extends Component {
         this.setState({data : data})
         console.log(this.state.data)
     }
+
+    onSubmit = () => {
+        console.log(this.state.data)
+
+        //PUT POST REQUEST HERE
+    }
     render() { 
         const { classes } = this.props; 
 
@@ -77,6 +83,8 @@ class ModVid extends Component {
                                 <Checkbox
                                 name="nudity"
                                 color="secondary"
+                                onChange={this.onChange}
+                                checked={this.state.nudity}
                                 />
                                 Nudity
                             </div>
@@ -84,6 +92,8 @@ class ModVid extends Component {
                                 <Checkbox
                                 name="dangerous"
                                 color="secondary"
+                                onChange={this.onChange}
+                                checked={this.state.dangerous}
                                 />
                                 Dangerous
                             </div>
@@ -91,6 +101,8 @@ class ModVid extends Component {
                                 <Checkbox
                                 name="hateful"
                                 color="secondary"
+                                onChange={this.onChange}
+                                checked={this.state.hateful}
                                 />
                                 Hateful
                             </div>
@@ -98,6 +110,8 @@ class ModVid extends Component {
                                 <Checkbox
                                 name="harassment"
                                 color="secondary"
+                                onChange={this.onChange}
+                                checked={this.state.harassment}
                                 />
                                 Harassment
                             </div>
@@ -105,6 +119,8 @@ class ModVid extends Component {
                                 <Checkbox
                                 name="spam"
                                 color="secondary"
+                                onChange={this.onChange}
+                                checked={this.state.spam}
                                 />
                                 Spam
                             </div>
@@ -112,6 +128,8 @@ class ModVid extends Component {
                                 <Checkbox
                                 name="threats"
                                 color="secondary"
+                                onChange={this.onChange}
+                                checked={this.state.threats}
                                 />
                                 Threats
                             </div>
@@ -119,13 +137,15 @@ class ModVid extends Component {
                                 <Checkbox
                                 name="privacy"
                                 color="secondary"
+                                onChange={this.onChange}
+                                checked={this.state.privacy}
                                 />
                                 Privacy
                             </div>  
                         </div>
                         <div>
-                            <Button variant="contained" classes={{root : classes.accept}}> Accept </Button>
-                            <Button variant="contained" classes={{root : classes.report}}> Report </Button>
+                            <Button variant="contained" classes={{root : classes.accept}} onClick={this.onSubmit}> not haram </Button>
+                            <Button variant="contained" classes={{root : classes.report}} > haram </Button>
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ import Home from './pages/home'
 import Sidenav from './components/sidenav'
 import Upload from './pages/upload/index.js'
 import Moderation from './pages/moderation'
+import Guidelines from './pages/guidelines';
 
 import { fade, withStyles, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -24,7 +25,8 @@ import Badge from '@material-ui/core/Badge';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import CloudUpload from '@material-ui/icons/CloudUpload';
-
+import HomeIcon from '@material-ui/icons/Home';
+import GavelIcon from '@material-ui/icons/Gavel';
 
 import "./App.css";
 
@@ -173,6 +175,11 @@ class App extends Component {
                     />
                   </div>
                   <div>
+                    <Link to="/">
+                      <IconButton>
+                        <HomeIcon color="secondary" />
+                      </IconButton>
+                    </Link>
                     <Link to="/upload">
                       <IconButton>
                         <CloudUpload color="secondary" />
@@ -181,6 +188,11 @@ class App extends Component {
                     <Link to="/moderation">
                       <IconButton>
                         <PeopleAltIcon color="secondary"></PeopleAltIcon>
+                      </IconButton>
+                    </Link>
+                    <Link to="/guidelines">
+                      <IconButton>
+                        <GavelIcon color="secondary" />
                       </IconButton>
                     </Link>
                     <IconButton>
@@ -199,6 +211,7 @@ class App extends Component {
               <div className="content-container-div">
                 {/*<Sidenav></Sidenav>*/}
                 <Switch>
+                  <Route path="/guidelines" component={Guidelines}></Route>
                   <Route path="/upload" component={Upload}></Route>
                   <Route path="/moderation" component={Moderation}></Route>
                   <Route path="/" component={Home}></Route>
