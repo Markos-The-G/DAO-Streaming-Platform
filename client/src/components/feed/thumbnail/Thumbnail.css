@@ -1,0 +1,29 @@
+.feed_video {
+  width: 16em;
+}
+
+.feed_video > .video_title {
+  text-overflow: ellipsis;
+  color: white;
+  font-size: 1rem;
+  line-height: 2rem;
+  max-height: 4rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.feed_video > .channel_title {
+  text-overflow: ellipsis;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.feed_video > .channel_title:hover {
+  color: white;
+}
+
+.feed_video > .video_thumbnail {
+  height: auto;
+  width: 16em;
+}
