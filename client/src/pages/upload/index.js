@@ -10,7 +10,8 @@ class Upload extends Component {
         ipfsHash: null,
         hightlight: false,
         uploadVideo: null,
-        buffer: null
+        buffer: null,
+        ipfsJson: null
     }
     this.fileInputRef = React.createRef();
   }
@@ -35,12 +36,15 @@ class Upload extends Component {
   }
 
   captureFile = (event) => {
+    // no refresh
     event.preventDefault();
     
+    // gathering the file they uploaded
     const file = event.target.files[0]
     const reader = new window.FileReader();
     reader.readAsArrayBuffer(file);
     reader.onloadend = () => {
+        // updating state of the component
         this.setState({
             buffer: Buffer(reader.result)
         })
@@ -51,7 +55,10 @@ class Upload extends Component {
   }
 
   onSubmit = (event) => {
+    // no refresh today
     event.preventDefault();
+
+    // getting the buffered file and uploading it to decentralized ipfs
     ipfs.files.add(this.state.buffer, (err, result) => {
         if (err) {
             console.log(err);
@@ -60,10 +67,47 @@ class Upload extends Component {
         this.setState({
             ipfsHash: result[0].hash
         })
-        console.log('ipfs:', this.state.ipfsHash)
+
+        if (this.state.ipfsJson === null) {
+            const nameVal = document.getElementById('name').value;
+            // let json = nameVal + ": " + this.state.ipfsHash
+            // JSON.stringify(json)
+
+            let obj = {
+
+            }
+
+            obj[nameVal] = this.state.ipfsHash;
+
+            console.log(obj)
+
+            ipfs.files.add(obj, (err, result) => {
+                if (err) {
+                    console.log(err)
+                    return
+                }
+                this.setState({
+                    ipfsJson: result
+                })
+
+                console.log(this.state.ipfsJson);
+
+            })
+
+        } else {
+
+        }
+
+        // console.log(this.state.ipfsJson);
+
     })
 
+    // getting the name of the video
+
+
+
   }
+
 
 
   render() {
@@ -95,6 +139,7 @@ class Upload extends Component {
         <form onSubmit = {this.onSubmit}> 
           <input type='file' onChange={this.captureFile} />
           <input type='submit' />
+          <input type='text' id='name' />
         </form>
 
       </div>

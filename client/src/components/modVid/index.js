@@ -34,10 +34,26 @@ const styles = {
 class ModVid extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            violence : false,
-            nudity : false
+        this.state = {
+            data : { 
+                violence : false,
+                nudity : false,
+                dangerous : false,
+                hateful : false,
+                harassment : false,
+                spam : false,
+                threats : false,
+                privacy : false
+            }
         }
+    }
+
+    onChange = (e) => {
+        const field = e.target.name
+        var data = this.state.data
+        data[field] = !data[field]
+        this.setState({data : data})
+        console.log(this.state.data)
     }
     render() { 
         const { classes } = this.props; 
@@ -50,56 +66,58 @@ class ModVid extends Component {
                         <div className="checkbox-container">
                             <div className="checkbox-div">
                                 <Checkbox
-                                name="checkedB"
+                                name="violence"
                                 color="secondary"
+                                onChange={this.onChange}
+                                checked={this.state.violence}
                                 />
                                 Violence
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
-                                name="checkedB"
+                                name="nudity"
                                 color="secondary"
                                 />
                                 Nudity
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
-                                name="checkedB"
+                                name="dangerous"
                                 color="secondary"
                                 />
                                 Dangerous
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
-                                name="checkedB"
+                                name="hateful"
                                 color="secondary"
                                 />
                                 Hateful
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
-                                name="checkedB"
+                                name="harassment"
                                 color="secondary"
                                 />
                                 Harassment
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
-                                name="checkedB"
+                                name="spam"
                                 color="secondary"
                                 />
                                 Spam
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
-                                name="checkedB"
+                                name="threats"
                                 color="secondary"
                                 />
                                 Threats
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
-                                name="checkedB"
+                                name="privacy"
                                 color="secondary"
                                 />
                                 Privacy

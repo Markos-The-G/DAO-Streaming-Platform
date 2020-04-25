@@ -9,7 +9,8 @@ class profileWidget extends Component {
     render() { 
         return (
             <div className="profile-widget-div">
-                PROFILE WIDGET
+                <div className="profile-balance">Current Balance: </div>
+                <div className="profile-balance">Reviewed Videos: </div>
 
             </div>
           );
