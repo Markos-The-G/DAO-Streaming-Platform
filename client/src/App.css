@@ -4,10 +4,12 @@
   background: lightblue; 
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .content-container-div{
   display: flex;
   flex: 1;
   background: #181818;
+  justify-content: center;
 }

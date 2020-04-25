@@ -2,11 +2,15 @@
   width: 16em;
 }
 
+.feed_video:hover{
+  cursor: pointer;
+}
+
 .feed_video > .video_title {
   text-overflow: ellipsis;
   color: white;
   font-size: 1rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
   max-height: 4rem;
   margin: 0;
   font-weight: 500;

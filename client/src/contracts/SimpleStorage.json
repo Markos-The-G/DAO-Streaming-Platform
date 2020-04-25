@@ -32,12 +32,12 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"get\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"x\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"x\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/marko/Documents/GitHub/DAO-Streaming-Platform/contracts/SimpleStorage.sol\":\"SimpleStorage\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/marko/Documents/GitHub/DAO-Streaming-Platform/contracts/SimpleStorage.sol\":{\"keccak256\":\"0x87675806541e7ddc2ab1f898768d2aabcf99bc9cc1722e44ce4ce88606e0ab78\",\"urls\":[\"bzz-raw://576a29df6d47e3acc21f0bae8f8bfdc04950cd02a727c01655ca7f3eb533c12b\",\"dweb:/ipfs/QmYV3XxK6ZPZdMSTBMoJjCX93fucG2tY6tCrLzRRy72gMk\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5061030f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80634ed3885e1461003b5780636d4ce63c146100f6575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290505050610179565b005b6100fe610193565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561013e578082015181840152602081019050610123565b50505050905090810190601f16801561016b5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b806000908051906020019061018f929190610235565b5050565b606060008054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561022b5780601f106102005761010080835404028352916020019161022b565b820191906000526020600020905b81548152906001019060200180831161020e57829003601f168201915b5050505050905090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061027657805160ff19168380011785556102a4565b828001600101855582156102a4579182015b828111156102a3578251825591602001919060010190610288565b5b5090506102b191906102b5565b5090565b6102d791905b808211156102d35760008160009055506001016102bb565b5090565b9056fea265627a7a72315820e817a7dfb1368b3cb9550b4eb563baec948c8830fa2806b58b30f33663a2527264736f6c63430005100032",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80634ed3885e1461003b5780636d4ce63c146100f6575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290505050610179565b005b6100fe610193565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561013e578082015181840152602081019050610123565b50505050905090810190601f16801561016b5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b806000908051906020019061018f929190610235565b5050565b606060008054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561022b5780601f106102005761010080835404028352916020019161022b565b820191906000526020600020905b81548152906001019060200180831161020e57829003601f168201915b5050505050905090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061027657805160ff19168380011785556102a4565b828001600101855582156102a4579182015b828111156102a3578251825591602001919060010190610288565b5b5090506102b191906102b5565b5090565b6102d791905b808211156102d35760008160009055506001016102bb565b5090565b9056fea265627a7a72315820e817a7dfb1368b3cb9550b4eb563baec948c8830fa2806b58b30f33663a2527264736f6c63430005100032",
-  "sourceMap": "35:210:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;35:210:1;;;;;;;",
-  "deployedSourceMap": "35:210:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;35:210:1;;;;;;;;;;;;;;;;;;;;;;;;86:66;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;86:66:1;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;86:66:1;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;86:66:1;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;86:66:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;86:66:1;;;;;;;;;;;;;;;:::i;:::-;;158:85;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;158:85:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;86:66;144:1;133:8;:12;;;;;;;;;;;;:::i;:::-;;86:66;:::o;158:85::-;194:15;228:8;221:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;158:85;:::o;35:210::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity >=0.4.21 <0.7.0;\n\n\ncontract SimpleStorage {\n    string ipfsHash;\n\n    function set(string memory x) public {\n        ipfsHash = x;\n    }\n\n    function get() public view returns (string memory x) {\n        return ipfsHash;\n    }\n}\n",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"get\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"x\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"x\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/marko/Documents/GitHub/DAO-Streaming-Platform/contracts/SimpleStorage.sol\":\"SimpleStorage\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/marko/Documents/GitHub/DAO-Streaming-Platform/contracts/SimpleStorage.sol\":{\"keccak256\":\"0x1c787ca6db824d6dc52c069dfd74b3a81b91530c655c6cfa3a1b8fa904a9ab2c\",\"urls\":[\"bzz-raw://6276d59e58a8fdc716307264d7aa95653dea9ee284361e6cbe87ba55ebb562d3\",\"dweb:/ipfs/Qmb3PMeaQqHqPddiTs8TShknhgG8cSXoHf2irPbVJDnav6\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061030f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80634ed3885e1461003b5780636d4ce63c146100f6575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290505050610179565b005b6100fe610193565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561013e578082015181840152602081019050610123565b50505050905090810190601f16801561016b5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b806000908051906020019061018f929190610235565b5050565b606060008054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561022b5780601f106102005761010080835404028352916020019161022b565b820191906000526020600020905b81548152906001019060200180831161020e57829003601f168201915b5050505050905090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061027657805160ff19168380011785556102a4565b828001600101855582156102a4579182015b828111156102a3578251825591602001919060010190610288565b5b5090506102b191906102b5565b5090565b6102d791905b808211156102d35760008160009055506001016102bb565b5090565b9056fea265627a7a723158208027780bc742d5e746c8577eca1ee7b3c1a44749f2d04d180834b529a999abd864736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80634ed3885e1461003b5780636d4ce63c146100f6575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290505050610179565b005b6100fe610193565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561013e578082015181840152602081019050610123565b50505050905090810190601f16801561016b5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b806000908051906020019061018f929190610235565b5050565b606060008054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561022b5780601f106102005761010080835404028352916020019161022b565b820191906000526020600020905b81548152906001019060200180831161020e57829003601f168201915b5050505050905090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061027657805160ff19168380011785556102a4565b828001600101855582156102a4579182015b828111156102a3578251825591602001919060010190610288565b5b5090506102b191906102b5565b5090565b6102d791905b808211156102d35760008160009055506001016102bb565b5090565b9056fea265627a7a723158208027780bc742d5e746c8577eca1ee7b3c1a44749f2d04d180834b529a999abd864736f6c63430005100032",
+  "sourceMap": "34:210:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;34:210:1;;;;;;;",
+  "deployedSourceMap": "34:210:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;34:210:1;;;;;;;;;;;;;;;;;;;;;;;;85:66;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;85:66:1;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;85:66:1;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;85:66:1;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;85:66:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;85:66:1;;;;;;;;;;;;;;;:::i;:::-;;157:85;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;157:85:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;85:66;143:1;132:8;:12;;;;;;;;;;;;:::i;:::-;;85:66;:::o;157:85::-;193:15;227:8;220:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;157:85;:::o;34:210::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity >=0.4.21 <0.7.0;\n\ncontract SimpleStorage {\n    string ipfsHash;\n\n    function set(string memory x) public {\n        ipfsHash = x;\n    }\n\n    function get() public view returns (string memory x) {\n        return ipfsHash;\n    }\n}\n",
   "sourcePath": "C:\\Users\\marko\\Documents\\GitHub\\DAO-Streaming-Platform\\contracts\\SimpleStorage.sol",
   "ast": {
     "absolutePath": "/C/Users/marko/Documents/GitHub/DAO-Streaming-Platform/contracts/SimpleStorage.sol",
@@ -82,7 +82,7 @@
             "name": "ipfsHash",
             "nodeType": "VariableDeclaration",
             "scope": 59,
-            "src": "64:15:1",
+            "src": "63:15:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -93,7 +93,7 @@
               "id": 39,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "64:6:1",
+              "src": "63:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -106,7 +106,7 @@
             "body": {
               "id": 49,
               "nodeType": "Block",
-              "src": "123:29:1",
+              "src": "122:29:1",
               "statements": [
                 {
                   "expression": {
@@ -123,7 +123,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 40,
-                      "src": "133:8:1",
+                      "src": "132:8:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
                         "typeString": "string storage ref"
@@ -138,13 +138,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 42,
-                      "src": "144:1:1",
+                      "src": "143:1:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
                         "typeString": "string memory"
                       }
                     },
-                    "src": "133:12:1",
+                    "src": "132:12:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
@@ -152,7 +152,7 @@
                   },
                   "id": 48,
                   "nodeType": "ExpressionStatement",
-                  "src": "133:12:1"
+                  "src": "132:12:1"
                 }
               ]
             },
@@ -173,7 +173,7 @@
                   "name": "x",
                   "nodeType": "VariableDeclaration",
                   "scope": 50,
-                  "src": "99:15:1",
+                  "src": "98:15:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -184,7 +184,7 @@
                     "id": 41,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "99:6:1",
+                    "src": "98:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -194,16 +194,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "98:17:1"
+              "src": "97:17:1"
             },
             "returnParameters": {
               "id": 44,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "123:0:1"
+              "src": "122:0:1"
             },
             "scope": 59,
-            "src": "86:66:1",
+            "src": "85:66:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -212,7 +212,7 @@
             "body": {
               "id": 57,
               "nodeType": "Block",
-              "src": "211:32:1",
+              "src": "210:32:1",
               "statements": [
                 {
                   "expression": {
@@ -222,7 +222,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 40,
-                    "src": "228:8:1",
+                    "src": "227:8:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
@@ -231,7 +231,7 @@
                   "functionReturnParameters": 54,
                   "id": 56,
                   "nodeType": "Return",
-                  "src": "221:15:1"
+                  "src": "220:15:1"
                 }
               ]
             },
@@ -246,7 +246,7 @@
               "id": 51,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "170:2:1"
+              "src": "169:2:1"
             },
             "returnParameters": {
               "id": 54,
@@ -258,7 +258,7 @@
                   "name": "x",
                   "nodeType": "VariableDeclaration",
                   "scope": 58,
-                  "src": "194:15:1",
+                  "src": "193:15:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -269,7 +269,7 @@
                     "id": 52,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "194:6:1",
+                    "src": "193:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -279,20 +279,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "193:17:1"
+              "src": "192:17:1"
             },
             "scope": 59,
-            "src": "158:85:1",
+            "src": "157:85:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 60,
-        "src": "35:210:1"
+        "src": "34:210:1"
       }
     ],
-    "src": "0:246:1"
+    "src": "0:245:1"
   },
   "legacyAST": {
     "absolutePath": "/C/Users/marko/Documents/GitHub/DAO-Streaming-Platform/contracts/SimpleStorage.sol",
@@ -337,7 +337,7 @@
             "name": "ipfsHash",
             "nodeType": "VariableDeclaration",
             "scope": 59,
-            "src": "64:15:1",
+            "src": "63:15:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -348,7 +348,7 @@
               "id": 39,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "64:6:1",
+              "src": "63:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -361,7 +361,7 @@
             "body": {
               "id": 49,
               "nodeType": "Block",
-              "src": "123:29:1",
+              "src": "122:29:1",
               "statements": [
                 {
                   "expression": {
@@ -378,7 +378,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 40,
-                      "src": "133:8:1",
+                      "src": "132:8:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
                         "typeString": "string storage ref"
@@ -393,13 +393,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 42,
-                      "src": "144:1:1",
+                      "src": "143:1:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
                         "typeString": "string memory"
                       }
                     },
-                    "src": "133:12:1",
+                    "src": "132:12:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
@@ -407,7 +407,7 @@
                   },
                   "id": 48,
                   "nodeType": "ExpressionStatement",
-                  "src": "133:12:1"
+                  "src": "132:12:1"
                 }
               ]
             },
@@ -428,7 +428,7 @@
                   "name": "x",
                   "nodeType": "VariableDeclaration",
                   "scope": 50,
-                  "src": "99:15:1",
+                  "src": "98:15:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -439,7 +439,7 @@
                     "id": 41,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "99:6:1",
+                    "src": "98:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -449,16 +449,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "98:17:1"
+              "src": "97:17:1"
             },
             "returnParameters": {
               "id": 44,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "123:0:1"
+              "src": "122:0:1"
             },
             "scope": 59,
-            "src": "86:66:1",
+            "src": "85:66:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -467,7 +467,7 @@
             "body": {
               "id": 57,
               "nodeType": "Block",
-              "src": "211:32:1",
+              "src": "210:32:1",
               "statements": [
                 {
                   "expression": {
@@ -477,7 +477,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 40,
-                    "src": "228:8:1",
+                    "src": "227:8:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
@@ -486,7 +486,7 @@
                   "functionReturnParameters": 54,
                   "id": 56,
                   "nodeType": "Return",
-                  "src": "221:15:1"
+                  "src": "220:15:1"
                 }
               ]
             },
@@ -501,7 +501,7 @@
               "id": 51,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "170:2:1"
+              "src": "169:2:1"
             },
             "returnParameters": {
               "id": 54,
@@ -513,7 +513,7 @@
                   "name": "x",
                   "nodeType": "VariableDeclaration",
                   "scope": 58,
-                  "src": "194:15:1",
+                  "src": "193:15:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -524,7 +524,7 @@
                     "id": 52,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "194:6:1",
+                    "src": "193:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -534,26 +534,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "193:17:1"
+              "src": "192:17:1"
             },
             "scope": 59,
-            "src": "158:85:1",
+            "src": "157:85:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 60,
-        "src": "35:210:1"
+        "src": "34:210:1"
       }
     ],
-    "src": "0:246:1"
+    "src": "0:245:1"
   },
   "compiler": {
     "name": "solc",
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x2bA68C2c416Bf71eb051eF0a68ABBD3366995601",
+      "transactionHash": "0x1ee2b8dd3246dbe5cd0b07b42ed564974c4ed0c6006500c85bae932b9035d637"
+    }
+  },
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-04-25T15:16:19.511Z"
+  "updatedAt": "2020-04-25T15:37:14.551Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
 }

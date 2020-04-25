@@ -1,0 +1,81 @@
+import React, { Component } from 'react';
+import PublishIcon from '@material-ui/icons/Publish';
+import './Upload.css';
+
+class Upload extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+        ipfsHash: null,
+        hightlight: false,
+        uploadVideo: null,
+        buffer: null
+    }
+    this.fileInputRef = React.createRef();
+  }
+
+  openFileDialog = () => {
+    if (this.props.disabled) return;
+    this.fileInputRef.current.click();
+  }
+
+  onFilesAdded = event => {
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      this.setState({uploadVideo: event.target.result});
+      const file = null // remembe rot chagne this
+      reader.readAsDataURL(file);
+    } 
+  }
+
+  onUpload = () => {
+    const video = this.state.uploadVideo;
+    //insert code to upload video
+  }
+
+  onSubmit = () => {
+      console.log("on submit...")
+  }
+
+  captureFile = () => {
+    console.log("capturing file...")
+  }
+
+  render() {
+    return (
+      <div className="upload">
+        <div className="drop-zone" onClick={this.openFileDialog} style={{ cursor: this.props.disabled ? "default" : "pointer" }}>
+          { this.state.uploadVideo != null ? 
+            <video width="400" controls>
+              <source src={this.state.uploadVideo} />
+              Your browser does not support HTML5 video.
+            </video>
+          : 
+          <div>
+            <PublishIcon/>
+            <input
+              ref={this.fileInputRef}
+              className="FileInput"
+              type="file"
+              onChange={this.onFilesAdded}
+              accept="video/mp4,video/x-m4v,video/*"
+            />
+            <span>Upload Files</span>
+          </div>  
+
+          
+        }
+        </div>
+
+        <form onSubmit = {this.onSubmit}> 
+          <input type='file' onChange={this.captureFile} />
+          <input type='submit' />
+        </form>
+
+      </div>
+    );
+
+  }
+}
+
+export default Upload;  

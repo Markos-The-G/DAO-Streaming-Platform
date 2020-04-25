@@ -6,6 +6,8 @@ import { BrowserRouter, Link, Route, Switch } from "react-router-dom"
 
 import Home from './pages/home'
 import Sidenav from './components/sidenav'
+import Upload from './pages/upload/index.js'
+import Moderation from './pages/moderation'
 
 import { fade, withStyles, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -20,8 +22,9 @@ import InputBase from '@material-ui/core/InputBase';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import Badge from '@material-ui/core/Badge';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import AppsIcon from '@material-ui/icons/Apps';
-import VideoCallIcon from '@material-ui/icons/VideoCall';
+import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
+import CloudUpload from '@material-ui/icons/CloudUpload';
+
 
 import "./App.css";
 
@@ -82,9 +85,9 @@ const styles = {
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: '12ch',
+      width: '30ch',
       '&:focus': {
-        width: '20ch',
+        width: '50ch',
       },
     },
   },
@@ -151,7 +154,11 @@ class App extends Component {
             <ThemeProvider theme={theme}>
               <AppBar position="static">
                 <Toolbar className={classes.toolBar}>
-                  <div>Not YouTube</div>
+                  <Link to="/" style={{textDecoration: "none" , color : "white"}}>
+                    <div>
+                      Not YouTube
+                    </div>
+                  </Link>
                   <div className={classes.search}>
                     <div className={classes.searchIcon}>
                       <SearchIcon />
@@ -166,12 +173,16 @@ class App extends Component {
                     />
                   </div>
                   <div>
-                    <IconButton>
-                      <VideoCallIcon color="secondary" />
-                    </IconButton>
-                    <IconButton>
-                      <AppsIcon color="secondary"></AppsIcon>
-                    </IconButton>
+                    <Link to="/upload">
+                      <IconButton>
+                        <CloudUpload color="secondary" />
+                      </IconButton>
+                    </Link>
+                    <Link to="/moderation">
+                      <IconButton>
+                        <PeopleAltIcon color="secondary"></PeopleAltIcon>
+                      </IconButton>
+                    </Link>
                     <IconButton>
                       <Badge badgeContent={4} color="error" overlap="circle" variant="dot">
                         <NotificationsIcon color="secondary"></NotificationsIcon>
@@ -188,9 +199,9 @@ class App extends Component {
               <div className="content-container-div">
                 {/*<Sidenav></Sidenav>*/}
                 <Switch>
-                  <Route to="/" component={Home}></Route>
-                  <Route to="/"></Route>
-                  <Route to="/"></Route>
+                  <Route path="/upload" component={Upload}></Route>
+                  <Route path="/moderation" component={Moderation}></Route>
+                  <Route path="/" component={Home}></Route>
                 </Switch>
               </div>
             </ThemeProvider>

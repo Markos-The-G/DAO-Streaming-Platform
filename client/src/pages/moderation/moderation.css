@@ -1,0 +1,21 @@
+.mod-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-tab-div{
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
+.mod-vids-div{
+    min-width: 50%;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
