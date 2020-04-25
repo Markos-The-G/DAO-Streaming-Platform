@@ -2,4 +2,12 @@
   min-width: 100vw;
   min-height: 100vh;
   background: lightblue; 
+  display: flex;
+  flex-direction: column;
+}
+
+.content-container-div{
+  display: flex;
+  flex: 1;
+  background: #181818;
 }

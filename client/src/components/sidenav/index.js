@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
+import "./sidenav.css"
 
-class Home extends Component {
+class Sidenav extends Component {
   constructor(props) {
     super(props);
     this.state = {}
   }
   render() {
     return (
-      <div>Home</div>
+      <div className="sidenav-div">
+        HELLO
+      </div>
     );
   }
 }
 
-export default Home;
+export default Sidenav;

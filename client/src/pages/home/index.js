@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Feed from '../../components/feed';
+import "./home.css"
 
 class Home extends Component {
   constructor(props) {
@@ -7,7 +9,9 @@ class Home extends Component {
   }
   render() {
     return (
-      <div>Home</div>
+      <div className="home-div">
+        <Feed />
+      </div>
     );
   }
 }
