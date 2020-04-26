@@ -52,4 +52,12 @@ router.post('/', async function (req, res, next) {
   // res.send(currentHash);
 });
 
+router.post('/getReports', async function (req, res, next) {
+  let currentValue = await contract.get(r)
+
+  const finalResult = ("DB: ", currentValue)
+res.send(finalResult);
+  // res.send(currentHash);
+});
+
 module.exports = router;

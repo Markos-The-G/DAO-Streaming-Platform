@@ -5,7 +5,7 @@ const ethers = require('ethers');
 const projectID = "920def75f3a245e981a1d9b60033574a";
 //const web3 = new Web3('HTTP://127.0.0.1:7545')
 const contractAddress = '0xaf868f034C3f8A1e4403e595bfa5b752d6b6528E' // markos contract
-const contractABI =[
+const contractABI = [
 	{
 		"constant": false,
 		"inputs": [
@@ -58,11 +58,17 @@ let customHttpProvider = new ethers.providers.JsonRpcProvider(url);
 let contract = new ethers.Contract(contractAddress, contractABI, customHttpProvider.getSigner(0));
 
 router.post('/report', async function (req, res, next) {
-  let tokenProvider = await contract.transfer(req.body.wallet, req.body.amount)
-  var responseMessage = (`successfully gave ${req.body.wallet} ${req.body.amount} DTV`)
+	const someFunction = await contract.transfer(req.body.wallet, req.body.amount)
 
-  res.send(responseMessage);
+	var responseMessage = (`successfully gave ${req.body.wallet} ${req.body.amount} DTV`)
+
+	res.send(responseMessage);
 });
- 
+
+router.post('/balance', async function (req, res, next) {
+	let balance = await contract.balanceOf(req.body.wallet)
+	var responseMessage = (`${req.body.wallet} has ${balance} tokens`)
+	res.send(responseMessage);
+});
 
 module.exports = router;

@@ -106,7 +106,7 @@ const styles = {
 }
 
 class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, contract: null , notification : true};
+  state = { storageValue: 0, web3: null, accounts: null, contract: null, notification: true };
 
   componentDidMount = async () => {
     try {
@@ -149,14 +149,14 @@ class App extends Component {
   //   this.setState({ storageValue: response });
   // };
 
-  notification = () =>{
-    if (!this.state.notification){
-      document.getElementsByClassName("notification-div")[0].style.opacity = "0"
-      this.setState({notification : true})
+  notification = () => {
+    if (!this.state.notification) {
+      document.getElementsByClassName("notification-div")[0].style.display = "none"
+      this.setState({ notification: true })
     }
-    else{
-      this.setState({notification : false})
-      document.getElementsByClassName("notification-div")[0].style.opacity = "1"
+    else {
+      this.setState({ notification: false })
+      document.getElementsByClassName("notification-div")[0].style.display = "flex"
     }
   }
 
@@ -167,99 +167,20 @@ class App extends Component {
     if (!this.state.web3) {
       return (
         <div className="app-div">
-        <BrowserRouter>
-          <ThemeProvider theme={theme}>
-          <Backdrop open={true} className={classes.backdrop}>
-            <div style={{fontSize : "50px", background : "#212121", padding : "60px", borderRadius : "10px",fontWeight : "bold"}}>Please Login With Metamask</div>
-          </Backdrop>
-            <AppBar position="static">
-              <Toolbar className={classes.toolBar}>
-                <Link to="/" style={{textDecoration: "none" , color : "white"}}>
-                  <div style={{width: "300px"}}>
-                    DAO.tv
-                  </div> 
-                </Link>
-                <div style={{display: "flex", alignItems : "center"}}>
-                  <div style={{ height: "0px", display: "flex", alignItems : "center"}}>
-                    <Link to="/">
-                      <IconButton>
-                        <HomeIcon color="secondary" />
-                      </IconButton>
-                    </Link>
-                  </div>
-                  <div className={classes.search}>
-                    <div className={classes.searchIcon}>
-                      <SearchIcon />
-                    </div>
-                    <InputBase
-                      placeholder="Search…"
-                      classes={{
-                        root: classes.inputRoot,
-                        input: classes.inputInput,
-                      }}
-                      inputProps={{ 'aria-label': 'search' }}
-                    />
-                  </div> 
-                  <div style={{ height: "0px", display: "flex", alignItems : "center"}}>
-                    <IconButton> 
-                        <Badge badgeContent={4} color="error" overlap="circle" variant="dot">
-                          <NotificationsIcon color="secondary"></NotificationsIcon>
-                        </Badge>
-                    </IconButton>
-                  </div>
-                </div>
-                <div style={{width: "300px", display: "flex", justifyContent : "flex-end"}}>
-                  
-                  <Link to="/upload">
-                    <IconButton>
-                      <CloudUpload color="secondary" />
-                    </IconButton>
-                  </Link>
-                  <Link to="/moderation">
-                    <IconButton>
-                      <PeopleAltIcon color="secondary"></PeopleAltIcon>
-                    </IconButton>
-                  </Link>
-                  <Link to="/guidelines">
-                    <IconButton>
-                      <GavelIcon color="secondary" />
-                    </IconButton>
-                  </Link>
-                  <IconButton>
-                    <AccountCircleIcon color="secondary"></AccountCircleIcon>
-                  </IconButton>
-
-                </div>
-              </Toolbar>
-            </AppBar>
-            <div className="content-container-div">
-              {/*<Sidenav></Sidenav>*/}
-              <Switch>
-                <Route path="/guidelines" component={Guidelines}></Route>
-                <Route path="/upload" component={Upload}></Route>
-                <Route path="/moderation" component={Moderation}></Route>
-                <Route path="/" component={Home}></Route>
-              </Switch>
-            </div>
-          </ThemeProvider>
-        </BrowserRouter >
-      </div >
-      )
-    }
-    else {
-      return (
-        <div className="app-div">
           <BrowserRouter>
             <ThemeProvider theme={theme}>
+              <Backdrop open={true} className={classes.backdrop}>
+                <div style={{ fontSize: "50px", background: "#212121", padding: "60px", borderRadius: "10px", fontWeight: "bold" }}>Please Login With Metamask</div>
+              </Backdrop>
               <AppBar position="static">
                 <Toolbar className={classes.toolBar}>
-                  <Link to="/" style={{textDecoration: "none" , color : "white"}}>
-                    <div style={{width: "300px"}}>
+                  <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                    <div style={{ width: "300px" }}>
                       DAO.tv
-                    </div> 
+                  </div>
                   </Link>
-                  <div style={{display: "flex", alignItems : "center"}}>
-                    <div style={{ height: "0px", display: "flex", alignItems : "center"}}>
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <div style={{ height: "0px", display: "flex", alignItems: "center" }}>
                       <Link to="/">
                         <IconButton>
                           <HomeIcon color="secondary" />
@@ -278,18 +199,97 @@ class App extends Component {
                         }}
                         inputProps={{ 'aria-label': 'search' }}
                       />
-                    </div> 
-                    <div style={{ height: "0px", display: "flex", alignItems : "center"}}>
-                      <IconButton onClick={this.notification}> 
-                          <Badge badgeContent={4} color="error" overlap="circle" variant="dot">
-                            <NotificationsIcon color="secondary"></NotificationsIcon>
-                          </Badge>
+                    </div>
+                    <div style={{ height: "0px", display: "flex", alignItems: "center" }}>
+                      <IconButton>
+                        <Badge badgeContent={4} color="error" overlap="circle" variant="dot">
+                          <NotificationsIcon color="secondary"></NotificationsIcon>
+                        </Badge>
                       </IconButton>
-                      <div className="notification-div" style={{position: "absolute", opacity : "0",  width: "300px", height : "500px" , background: "white" , top : "40px", marginLeft : "10px"}}>HELLO</div>
                     </div>
                   </div>
-                  <div style={{width: "300px", display: "flex", justifyContent : "flex-end"}}>
-                    
+                  <div style={{ width: "300px", display: "flex", justifyContent: "flex-end" }}>
+
+                    <Link to="/upload">
+                      <IconButton>
+                        <CloudUpload color="secondary" />
+                      </IconButton>
+                    </Link>
+                    <Link to="/moderation">
+                      <IconButton>
+                        <PeopleAltIcon color="secondary"></PeopleAltIcon>
+                      </IconButton>
+                    </Link>
+                    <Link to="/guidelines">
+                      <IconButton>
+                        <GavelIcon color="secondary" />
+                      </IconButton>
+                    </Link>
+                    <IconButton>
+                      <AccountCircleIcon color="secondary"></AccountCircleIcon>
+                    </IconButton>
+
+                  </div>
+                </Toolbar>
+              </AppBar>
+              <div className="content-container-div">
+                {/*<Sidenav></Sidenav>*/}
+                <Switch>
+                  <Route path="/guidelines" component={Guidelines}></Route>
+                  <Route path="/upload" component={Upload}></Route>
+                  <Route path="/moderation" component={Moderation}></Route>
+                  <Route path="/" component={Home}></Route>
+                </Switch>
+              </div>
+            </ThemeProvider>
+          </BrowserRouter >
+        </div >
+      )
+    }
+    else {
+      return (
+        <div className="app-div">
+          <BrowserRouter>
+            <ThemeProvider theme={theme}>
+              <AppBar position="static">
+                <Toolbar className={classes.toolBar}>
+                  <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                    <div style={{ width: "300px" }}>
+                      DAO.tv
+                    </div>
+                  </Link>
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <div style={{ height: "0px", display: "flex", alignItems: "center" }}>
+                      <Link to="/">
+                        <IconButton>
+                          <HomeIcon color="secondary" />
+                        </IconButton>
+                      </Link>
+                    </div>
+                    <div className={classes.search}>
+                      <div className={classes.searchIcon}>
+                        <SearchIcon />
+                      </div>
+                      <InputBase
+                        placeholder="Search…"
+                        classes={{
+                          root: classes.inputRoot,
+                          input: classes.inputInput,
+                        }}
+                        inputProps={{ 'aria-label': 'search' }}
+                      />
+                    </div>
+                    <div style={{ height: "0px", display: "flex", alignItems: "center" }}>
+                      <IconButton onClick={this.notification}>
+                        <Badge badgeContent={4} color="error" overlap="circle" variant="dot">
+                          <NotificationsIcon color="secondary"></NotificationsIcon>
+                        </Badge>
+                      </IconButton>
+                      <div className="notification-div" style={{ position: "absolute", display: "none", width: "300px", height: "500px", background: "white", top: "40px", marginLeft: "10px" }}>HELLO</div>
+                    </div>
+                  </div>
+                  <div style={{ width: "300px", display: "flex", justifyContent: "flex-end" }}>
+
                     <Link to="/upload">
                       <IconButton>
                         <CloudUpload color="secondary" />
