@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-const axios = require('axios')
 const ethers = require('ethers');
 const projectID = "920def75f3a245e981a1d9b60033574a";
 //const web3 = new Web3('HTTP://127.0.0.1:7545')
@@ -39,58 +38,18 @@ const contractABI = [
   }
 ];
 
-// function myFunction(myParam) {
-//     var contract = new web3.eth.Contract(contractABI, contractAddress)
-//     var callData = contract.methods.set(myParam).call()
-//     callData.then(function(result) {
-//         return (result)
-//     })
-// }
+let url = "HTTP://127.0.0.1:7545";
+let customHttpProvider = new ethers.providers.JsonRpcProvider(url);
 
-//const SimpleStorage = web3.eth.contract(contractABI, contractAddress);
 
-// function settt() {
-//   var contract = new web3.eth.Contract(contractABI, contractAddress)
-//   var callData = contract.methods.get().call()
-//   callData.then(function(result) {
-//       return (result)
-//   })
-// }
+let contract = new ethers.Contract(contractAddress, contractABI, customHttpProvider.getSigner(0));
 
-// const getFunction = () => {
-//     var contract = new web3.eth.Contract(contractABI, contractAddress)
-//     var callData = contract.methods.get().call().then((result) => {
-//       return result
-//     })
+router.post('/', async function (req, res, next) {
+  let currentValue = await contract.set(req.body.hash)
 
-// }
-
-// const setFunction = (par) => {
-//     var contract = new web3.eth.Contract(contractABI, contractAddress)
-//     var callData = contract.methods.set(par).call().then((result) => {
-//       console.log(result)
-//     }).catch((err) => {
-//       console.log(err);
-//     })
-
-// }
-
-// importing ipfs
-
-const provider = new ethers.providers.Web3Provider(window.ethereum)
-
-const registry = new ethers.Contract('SimpleStorage', contractABI, provider.getSigner());
-
-// creating a new uploaded post
-router.post('/', function (req, res, next) {
-  const result = settt()
-  // const currentHash = getFunction()
-  // setFunction(req.body.hash);
-  const finalResult = (result + req.body.hash)
-  res.send(finalResult);
+  const finalResult = (currentValue)
+  res.send('Updated!');
   // res.send(currentHash);
 });
-
-
 
 module.exports = router;

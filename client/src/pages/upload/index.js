@@ -11,7 +11,6 @@ class Upload extends Component {
       ipfsHash: null,
       buffer: null,
       ipfsJson: null,
-      hightlight: false,
       bufferedVideo: null,
       previewURL: null,
       title: null,
@@ -22,7 +21,16 @@ class Upload extends Component {
 
   openFileDialog = () => {
     if (this.props.disabled) return;
-    this.fileInputRef.current.click();
+    this.fileInputRef.current.click(); 
+  }
+ 
+  clearVideo = () => {
+    this.setState({
+      previewURL: null,
+      bufferedVideo: null,
+      title: null,
+      description: null,
+    });
   }
 
   onFilesAdded = event => {
@@ -33,7 +41,7 @@ class Upload extends Component {
     reader.onloadend = () => {
         // updating state of the component
         this.setState({
-            bufferedVideo: Buffer(reader.result)
+          bufferedVideo: Buffer(reader.result)
         })
         console.log("buffer:", this.state.bufferedVideo)
     }
@@ -91,7 +99,7 @@ class Upload extends Component {
         const nameVal = document.getElementById('name').value;
         if (this.state.ipfsJson === null) {
 
-            let obj = {
+            let obj = { 
 
             }
 
@@ -111,11 +119,30 @@ class Upload extends Component {
 
                 console.log(this.state.ipfsJson);
 
+
+                // markos route
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+
+                var raw = JSON.stringify({"hash": this.state.ipfsJson});
+
+                var requestOptions = {
+                  method: 'POST',
+                  headers: myHeaders,
+                  body: raw,
+                  redirect: 'follow'
+                };
+
+                fetch("http://localhost:3005/videos", requestOptions)
+                  .then(response => response.text())
+                  .then(result => console.log(result))
+                  .catch(error => console.log('error', error));
+
             })
 
         } else {
 
-            ipfs.cat('QmXtr9eMLEpKYYs9W6Fkag6we2WaMhLuZuwLCKpMbiVrLa', (err, result) => {
+            ipfs.cat(this.state.ipfsJson, (err, result) => {
                 if (err) {
                     console.log(err);
                     return
@@ -155,7 +182,7 @@ class Upload extends Component {
     return (
       <div className="upload-page">
         <div className="container">
-          {true ? 
+          {this.state.previewURL == null ?
           <div className="drop-zone" onClick={this.openFileDialog} style={{ cursor: this.props.disabled ? "default" : "pointer" }}>
             <PublishIcon style={{ fontSize: '5rem' }}/>
             <input
@@ -169,11 +196,12 @@ class Upload extends Component {
           </div>  
           :
           <form>
-            <h3></h3>
+            <h3>Video Preview</h3>
             <video width="400" controls>
               <source src={this.state.previewURL} />
               Your browser does not support HTML5 video.
             </video>
+            <button onClick={()=>this.clearVideo}>Clear Video</button> 
             <input name="title" type='text'/>
             <input name="description" type='text'/>
             <input type='submit'/>

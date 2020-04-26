@@ -27,7 +27,7 @@ const styles = {
         "&:hover" : {
             background : "#701a1a"
         }
-    }
+    },
 }
 
 
@@ -42,7 +42,7 @@ class ModVid extends Component {
                 hateful : false,
                 harassment : false,
                 spam : false,
-                threats : false,
+                other : false,
                 privacy : false
             }
         }
@@ -126,13 +126,13 @@ class ModVid extends Component {
                             </div>
                             <div className="checkbox-div">
                                 <Checkbox
-                                name="threats"
+                                name="privacy"
                                 color="secondary"
                                 onChange={this.onChange}
-                                checked={this.state.threats}
+                                checked={this.state.privacy}
                                 />
-                                Threats
-                            </div>
+                                Privacy
+                            </div>  
                             <div className="checkbox-div">
                                 <Checkbox
                                 name="privacy"
@@ -140,7 +140,7 @@ class ModVid extends Component {
                                 onChange={this.onChange}
                                 checked={this.state.privacy}
                                 />
-                                Privacy
+                                Other
                             </div>  
                         </div>
                         <div>

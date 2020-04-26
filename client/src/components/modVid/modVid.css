@@ -13,6 +13,7 @@ width: 100%;
 height: 100%;
 display: flex;
 justify-content: center;
+
 }
 .mod-vid-form{
     max-width: 500px;
@@ -33,4 +34,7 @@ flex-wrap: wrap;
     margin: 2.5px;
     width: fit-content;
     color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
 }
+

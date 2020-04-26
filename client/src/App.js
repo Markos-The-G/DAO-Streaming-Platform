@@ -157,29 +157,41 @@ class App extends Component {
               <AppBar position="static">
                 <Toolbar className={classes.toolBar}>
                   <Link to="/" style={{textDecoration: "none" , color : "white"}}>
-                    <div>
-                      Not YouTube
-                    </div>
+                    <div style={{width: "300px"}}>
+                      TouYube
+                    </div> 
                   </Link>
-                  <div className={classes.search}>
-                    <div className={classes.searchIcon}>
-                      <SearchIcon />
+                  <div style={{display: "flex", alignItems : "center"}}>
+                    <div style={{ height: "0px", display: "flex", alignItems : "center"}}>
+                      <Link to="/">
+                        <IconButton>
+                          <HomeIcon color="secondary" />
+                        </IconButton>
+                      </Link>
                     </div>
-                    <InputBase
-                      placeholder="Search…"
-                      classes={{
-                        root: classes.inputRoot,
-                        input: classes.inputInput,
-                      }}
-                      inputProps={{ 'aria-label': 'search' }}
-                    />
-                  </div>
-                  <div>
-                    <Link to="/">
-                      <IconButton>
-                        <HomeIcon color="secondary" />
+                    <div className={classes.search}>
+                      <div className={classes.searchIcon}>
+                        <SearchIcon />
+                      </div>
+                      <InputBase
+                        placeholder="Search…"
+                        classes={{
+                          root: classes.inputRoot,
+                          input: classes.inputInput,
+                        }}
+                        inputProps={{ 'aria-label': 'search' }}
+                      />
+                    </div> 
+                    <div style={{ height: "0px", display: "flex", alignItems : "center"}}>
+                      <IconButton> 
+                          <Badge badgeContent={4} color="error" overlap="circle" variant="dot">
+                            <NotificationsIcon color="secondary"></NotificationsIcon>
+                          </Badge>
                       </IconButton>
-                    </Link>
+                    </div>
+                  </div>
+                  <div style={{width: "300px", display: "flex", justifyContent : "flex-end"}}>
+                    
                     <Link to="/upload">
                       <IconButton>
                         <CloudUpload color="secondary" />
@@ -195,12 +207,6 @@ class App extends Component {
                         <GavelIcon color="secondary" />
                       </IconButton>
                     </Link>
-                    <IconButton>
-                      <Badge badgeContent={4} color="error" overlap="circle" variant="dot">
-                        <NotificationsIcon color="secondary"></NotificationsIcon>
-                      </Badge>
-                    </IconButton>
-
                     <IconButton>
                       <AccountCircleIcon color="secondary"></AccountCircleIcon>
                     </IconButton>

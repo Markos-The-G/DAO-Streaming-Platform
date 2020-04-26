@@ -11,7 +11,10 @@
 }
 
 .guidelines-line{
-    width: 50%;
-    background: red;
-    height: 5px;
+    width: 60%;
+    background: #414141;
+    height: 4px;
+    border-radius: 2px;
+    margin: 20px;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }

@@ -5,10 +5,35 @@
     background: #414141;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
 }
 
 .profile-balance{
     color: white;
-    font-size: 30px;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: 700;
+    font-family: nunito;
+}
+
+.balance-amount{
+    color: white;
+    font-size: 40px;
+    margin-top: 20px;
+    font-weight: 700;
+    font-family: nunito;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 125px;
+    background: #202020;
+    line-height: 55px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
 }
