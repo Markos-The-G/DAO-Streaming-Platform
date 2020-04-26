@@ -42,7 +42,38 @@ class Tokens extends React.Component{
 
     // markos route goes here with add and amount 
 
-  }
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({"wallet": add ,"amount": parseInt(amount)});
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    fetch("http://localhost:3005/tokens/report", requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        console.log(result)
+        var raw = JSON.stringify({"wallet":"0x51Ff097f295FEa0066106C3A598c64fE3F9592A7"});
+
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow'
+        };
+
+        fetch("http://localhost:3005/tokens/balance", requestOptions)
+          .then(response => response.text())
+          .then(result => console.log(result))
+          .catch(error => console.log('error', error));
+      })
+      .catch(error => console.log('error', error));
+    }
   render(){
     const { classes } = this.props; 
 
