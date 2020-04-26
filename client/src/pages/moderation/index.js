@@ -15,12 +15,12 @@ class Moderation extends Component {
                     <ProfileWidget></ProfileWidget>
                 </div>
                 <div className="mod-vids-div">
-                    <ModVid></ModVid>
-                    <ModVid></ModVid>
-                    <ModVid></ModVid>
-                    <ModVid></ModVid>
-                    <ModVid></ModVid>
-                    <ModVid></ModVid>
+                    <ModVid title="asd"></ModVid>
+                    <ModVid title="asdasd"></ModVid>
+                    <ModVid title="Loom1"></ModVid>
+                    <ModVid title="Loom2"></ModVid>
+                    <ModVid title="Loom3"></ModVid>
+                    <ModVid title="Loom4"></ModVid>
 
                 </div>
                 

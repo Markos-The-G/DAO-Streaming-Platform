@@ -7,8 +7,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   root: {
     padding: "1em 0.5em",
-    flexGrow: 1,
-  },
+    flexGrow: 1
+    },
 });
 
 function Feed(props) {

@@ -1,88 +1,60 @@
 import React, { Component } from 'react';
 import PublishIcon from '@material-ui/icons/Publish';
 import './Upload.css';
-import ipfs from './ipfs';
-import ipfsmini from './ipfsmini';
+import ipfs from './ipfs.js';
 
 class Upload extends Component {
   constructor(props) {
     super(props);
     this.state = { 
       ipfsHash: null,
-      buffer: null,
       ipfsJson: null,
-      bufferedVideo: null,
-      previewURL: null,
+      buffer: null,
+      fileName: null,
       title: null,
       description: null,
     }
     this.fileInputRef = React.createRef();
   }
 
+  handleChangeTitle(event) {
+    this.setState({title: event.target.value});
+  }
+  handleDescriptionTitle(event) {
+    this.setState({description: event.target.value});
+  }
+  clearVideo = () => {
+    this.setState({
+      buffer: null,
+      filename: null,
+      title: null,
+      description: null,
+      bufferedVideo: null,
+    });
+  }
+
   openFileDialog = () => {
     if (this.props.disabled) return;
     this.fileInputRef.current.click(); 
   }
- 
-  clearVideo = () => {
-    this.setState({
-      previewURL: null,
-      bufferedVideo: null,
-      title: null,
-      description: null,
-    });
-  }
-
-  onFilesAdded = event => {
-    const file = event.target.files[0]
-    //store file
+  
+  onFilesAdded = (event) => {
+    event.preventDefault();
+    const file = event.target.files[0];
     let reader = new FileReader();
     reader.readAsArrayBuffer(file);
     reader.onloadend = () => {
-        // updating state of the component
-        this.setState({
-          bufferedVideo: Buffer(reader.result)
-        })
-        console.log("buffer:", this.state.bufferedVideo)
-    }
-    //add preview
-    reader = new FileReader();
-    reader.onloadend = () => {
+      // updating state of the component
       this.setState({
-        previewURL: reader.result
+        buffer: Buffer(reader.result)
       })
-    } 
-    reader.readAsDataURL(file);
-  }
-
-  onUpload = () => {
-    const video = this.state.uploadVideo;
-    //insert code to upload video
-  }
-
-
-
-  captureFile = (event) => {
-    // no refresh
-    event.preventDefault();
-    
-    // gathering the file they uploaded
-    const file = event.target.files[0]
-    const reader = new window.FileReader();
-    reader.readAsArrayBuffer(file);
-    reader.onloadend = () => {
-        // updating state of the component
-        this.setState({
-            buffer: Buffer(reader.result)
-        })
-        console.log("buffer:", this.state.buffer)
-
+      console.log("buffer:", this.state.buffer)
     }
-
+    console.log(event.target);
+    console.log(event.target.value);
+    this.setState({filename: event.target.value.split(/(\\|\/)/g).pop()});
   }
   
-  
-
   onSubmit = (event) => {
     // no refresh today
     event.preventDefault();
@@ -119,29 +91,23 @@ class Upload extends Component {
 
                 console.log(this.state.ipfsJson);
 
-
                 // markos route
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/json");
 
                 var raw = JSON.stringify({"hash": this.state.ipfsJson});
-
                 var requestOptions = {
                   method: 'POST',
                   headers: myHeaders,
                   body: raw,
                   redirect: 'follow'
                 };
-
                 fetch("http://localhost:3005/videos", requestOptions)
                   .then(response => response.text())
                   .then(result => console.log(result))
                   .catch(error => console.log('error', error));
-
             })
-
         } else {
-
             ipfs.cat(this.state.ipfsJson, (err, result) => {
                 if (err) {
                     console.log(err);
@@ -151,6 +117,8 @@ class Upload extends Component {
                 let new_obj = JSON.parse(obj);
 
                 new_obj[nameVal] = this.state.ipfsHash;
+                console.log(new_obj)
+
 
                 let buffer = Buffer.from(JSON.stringify(new_obj));
 
@@ -165,54 +133,73 @@ class Upload extends Component {
                     })
 
                     console.log(this.state.ipfsJson);
+
+                    // markos route
+                    var myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+
+                    var raw = JSON.stringify({"hash": this.state.ipfsJson});
+
+                    var requestOptions = {
+                      method: 'POST',
+                      headers: myHeaders,
+                      body: raw,
+                      redirect: 'follow'
+                    };
+
+                    fetch("http://localhost:3005/videos", requestOptions)
+                      .then(response => response.text())
+                      .then(result => console.log(result))
+                      .catch(error => console.log('error', error));
                 })
-
-            });
-
+            })
         }
-
-        // console.log(this.state.ipfsJson);
     })
-    // getting the name of the video
   }
-
-
 
   render() {
     return (
       <div className="upload-page">
         <div className="container">
-          {this.state.previewURL == null ?
-          <div className="drop-zone" onClick={this.openFileDialog} style={{ cursor: this.props.disabled ? "default" : "pointer" }}>
-            <PublishIcon style={{ fontSize: '5rem' }}/>
-            <input
-              ref={this.fileInputRef}
-              className="FileInput"
-              type="file"
-              onChange={this.onFilesAdded}
-              accept="video/mp4,video/x-m4v,video/*"
-            />
-            <span className="message">Upload Files</span>
-          </div>  
-          :
-          <form>
-            <h3>Video Preview</h3>
-            <video width="400" controls>
-              <source src={this.state.previewURL} />
-              Your browser does not support HTML5 video.
-            </video>
-            <button onClick={()=>this.clearVideo}>Clear Video</button> 
-            <input name="title" type='text'/>
-            <input name="description" type='text'/>
-            <input type='submit'/>
-          </form>
+          {this.state.buffer == null ? 
+            <div className="drop-zone" onClick={this.openFileDialog} style={{ cursor: this.props.disabled ? "default" : "pointer" }}>
+              <PublishIcon style={{ fontSize: '5rem' }}/>
+              <input
+                ref={this.fileInputRef}
+                className="FileInput"
+                type="file"
+                onChange={this.onFilesAdded}
+                accept="video/mp4,video/x-m4v,video/*"
+              />
+              <span className="message">Upload Files</span>
+            </div> :
+            <form className="upload-form">
+              <h3>Details</h3>
+              <div className="video-file">
+                <div>Filename</div>
+                <span>{this.state.filename}</span>
+                <span className="clear-video-button" onClick={this.clearVideo}>Clear Video</span> 
+              </div>
+              <div>
+                <div className="upload-form-item">
+                  <label for="email">Title</label>
+                  <textarea id="email" rows="2" cols="50" value={this.state.title} onChange={this.handleTitleChange} name="title" type='text'/>
+                </div>
+              </div>
+              <div>
+                <div className="upload-form-item">
+                  <label for="description">Description</label>
+                  <textarea id="description" rows="4" cols="50" value={this.state.description} onChange={this.handleDescriptionChange} name="description" type='text'/>
+                </div>
+              </div>
+              <hr noshade/>
+              <input value="Upload" className="upload-submit" type='submit' text='upload'/>
+            </form>
           }
         </div>
 
-
-
         <form onSubmit = {this.onSubmit}> 
-          <input type='file' onChange={this.captureFile} />
+          <input type='file' onChange={this.onFilesAdded} />
           <input type='submit' />
           <input type='text' id='name' />
         </form>

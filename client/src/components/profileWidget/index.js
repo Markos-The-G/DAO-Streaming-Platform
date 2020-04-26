@@ -10,7 +10,9 @@ class profileWidget extends Component {
         return (
             <div className="profile-widget-div">
                 <div className="profile-balance">Current Balance: </div>
-                <div className="balance-amount">500 niggas</div>
+                <div className="balance-amount">
+                    500 DTV
+                </div>
             </div>
           );
     }

@@ -27,6 +27,8 @@ import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import CloudUpload from '@material-ui/icons/CloudUpload';
 import HomeIcon from '@material-ui/icons/Home';
 import GavelIcon from '@material-ui/icons/Gavel';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import "./App.css";
 
@@ -96,11 +98,15 @@ const styles = {
   toolBar: {
     display: "flex",
     justifyContent: "space-between"
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#ffffff',
   }
 }
 
 class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, contract: null };
+  state = { storageValue: 0, web3: null, accounts: null, contract: null , notification : true};
 
   componentDidMount = async () => {
     try {
@@ -143,11 +149,102 @@ class App extends Component {
   //   this.setState({ storageValue: response });
   // };
 
+  notification = () =>{
+    if (!this.state.notification){
+      document.getElementsByClassName("notification-div")[0].style.opacity = "0"
+      this.setState({notification : true})
+    }
+    else{
+      this.setState({notification : false})
+      document.getElementsByClassName("notification-div")[0].style.opacity = "1"
+    }
+  }
+
+
   render() {
     const { classes } = this.props;
 
     if (!this.state.web3) {
-      return (<div>NOT LOGGED IN</div>)
+      return (
+        <div className="app-div">
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+          <Backdrop open={true} className={classes.backdrop}>
+            <div style={{fontSize : "50px", background : "#212121", padding : "60px", borderRadius : "10px",fontWeight : "bold"}}>Please Login With Metamask</div>
+          </Backdrop>
+            <AppBar position="static">
+              <Toolbar className={classes.toolBar}>
+                <Link to="/" style={{textDecoration: "none" , color : "white"}}>
+                  <div style={{width: "300px"}}>
+                    DAO.tv
+                  </div> 
+                </Link>
+                <div style={{display: "flex", alignItems : "center"}}>
+                  <div style={{ height: "0px", display: "flex", alignItems : "center"}}>
+                    <Link to="/">
+                      <IconButton>
+                        <HomeIcon color="secondary" />
+                      </IconButton>
+                    </Link>
+                  </div>
+                  <div className={classes.search}>
+                    <div className={classes.searchIcon}>
+                      <SearchIcon />
+                    </div>
+                    <InputBase
+                      placeholder="Search…"
+                      classes={{
+                        root: classes.inputRoot,
+                        input: classes.inputInput,
+                      }}
+                      inputProps={{ 'aria-label': 'search' }}
+                    />
+                  </div> 
+                  <div style={{ height: "0px", display: "flex", alignItems : "center"}}>
+                    <IconButton> 
+                        <Badge badgeContent={4} color="error" overlap="circle" variant="dot">
+                          <NotificationsIcon color="secondary"></NotificationsIcon>
+                        </Badge>
+                    </IconButton>
+                  </div>
+                </div>
+                <div style={{width: "300px", display: "flex", justifyContent : "flex-end"}}>
+                  
+                  <Link to="/upload">
+                    <IconButton>
+                      <CloudUpload color="secondary" />
+                    </IconButton>
+                  </Link>
+                  <Link to="/moderation">
+                    <IconButton>
+                      <PeopleAltIcon color="secondary"></PeopleAltIcon>
+                    </IconButton>
+                  </Link>
+                  <Link to="/guidelines">
+                    <IconButton>
+                      <GavelIcon color="secondary" />
+                    </IconButton>
+                  </Link>
+                  <IconButton>
+                    <AccountCircleIcon color="secondary"></AccountCircleIcon>
+                  </IconButton>
+
+                </div>
+              </Toolbar>
+            </AppBar>
+            <div className="content-container-div">
+              {/*<Sidenav></Sidenav>*/}
+              <Switch>
+                <Route path="/guidelines" component={Guidelines}></Route>
+                <Route path="/upload" component={Upload}></Route>
+                <Route path="/moderation" component={Moderation}></Route>
+                <Route path="/" component={Home}></Route>
+              </Switch>
+            </div>
+          </ThemeProvider>
+        </BrowserRouter >
+      </div >
+      )
     }
     else {
       return (
@@ -158,7 +255,7 @@ class App extends Component {
                 <Toolbar className={classes.toolBar}>
                   <Link to="/" style={{textDecoration: "none" , color : "white"}}>
                     <div style={{width: "300px"}}>
-                      TouYube
+                      DAO.tv
                     </div> 
                   </Link>
                   <div style={{display: "flex", alignItems : "center"}}>
@@ -183,11 +280,12 @@ class App extends Component {
                       />
                     </div> 
                     <div style={{ height: "0px", display: "flex", alignItems : "center"}}>
-                      <IconButton> 
+                      <IconButton onClick={this.notification}> 
                           <Badge badgeContent={4} color="error" overlap="circle" variant="dot">
                             <NotificationsIcon color="secondary"></NotificationsIcon>
                           </Badge>
                       </IconButton>
+                      <div className="notification-div" style={{position: "absolute", opacity : "0",  width: "200px", height : "600px" , background: "white" , top : "40px", marginLeft : "10px"}}>HELLO</div>
                     </div>
                   </div>
                   <div style={{width: "300px", display: "flex", justifyContent : "flex-end"}}>
