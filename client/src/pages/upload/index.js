@@ -186,21 +186,18 @@ class Upload extends Component {
               <div>
                 <div className="upload-form-item">
                   <label for="title">Title</label>
-                  <textarea id="title" rows="2" cols="50" value={this.state.title} onChange={this.handleTitleChange} name="title" type='text' />
+                  <textarea placeholder="Add a title that describes your video" id="title" rows="2" cols="50" value={this.state.title} onChange={this.handleTitleChange} name="title" type='text' />
                 </div>
               </div>
               <div>
                 <div className="upload-form-item">
                   <label for="description">Description</label>
-                  <textarea id="description" rows="4" cols="50" value={this.state.description} onChange={this.handleDescriptionChange} name="description" type='text' />
+                  <textarea placeholder="Tell viewers about your video" id="description" rows="4" cols="50" value={this.state.description} onChange={this.handleDescriptionChange} name="description" type='text' />
                 </div>
               </div>
               <hr noshade />
               <input className="upload-submit" type="submit" />
-              {/* <input disabled={this.state.title == null || this.state.description == null} onClick={this.onSubmit} value="Wow Kev" className="upload-submit" type='submit' text='upload' /> */}
             </form>
-
-
           }
         </div>
       </div>

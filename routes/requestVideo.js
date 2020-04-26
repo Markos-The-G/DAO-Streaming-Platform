@@ -87,4 +87,10 @@ router.post('/', async function (req, res, next) {
 
 });
 
+router.get('/smartContract', async function(req, res, next) {
+  let currentValue = await contract.get()
+  res.send(currentValue);
+});
+
+
 module.exports = router;

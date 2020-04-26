@@ -1,4 +1,4 @@
-.drop-zone {
+    .drop-zone {
   height: 10em;
   width: 10em;
   align-self: center;
@@ -81,8 +81,14 @@
 }
 
 .upload-form-item textarea {
+  color: #606060;
   resize: none;
   border: none;
+}
+
+.upload-form-item textarea::placeholder {
+  color: #c4c4c4;
+  font-family: 'Raleway', sans-serif;
 }
 
 .upload-form-item textarea:focus {

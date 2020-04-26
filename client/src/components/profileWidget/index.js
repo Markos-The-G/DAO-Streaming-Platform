@@ -13,7 +13,7 @@ class profileWidget extends Component {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
-        var raw = JSON.stringify({"wallet":"0x51Ff097f295FEa0066106C3A598c64fE3F9592A7"});
+        var raw = JSON.stringify({"wallet": this.props.wallet });
 
         var requestOptions = {
           method: 'POST',

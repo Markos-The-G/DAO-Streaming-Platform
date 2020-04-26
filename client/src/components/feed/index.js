@@ -55,15 +55,13 @@ function Feed(props) {
             setHash("https://gateway.ipfs.io/ipfs/" + result)
           }
           console.log(result)
-
-
-
+          console.log(hash)
 
 
 
         })
         .catch(error => console.log('error', error));
-    })
+    });
     //console.log(results)
     // setOne(results[0])
     // setTwo(results[1])
@@ -72,14 +70,14 @@ function Feed(props) {
     // console.log(results[0])
     // setHash("https://gateway.ipfs.io/ipfs/" + results[3])
 
-  })
+  }, []);
 
   return (
     <div className={classes.root}>
       <Grid container direction="row" justify="space-between" spacing={2}>
         {test ?
           <Grid item>
-            <Thumbnail image={"https://huronelginwater.ca/wp-content/uploads/2019/03/test.jpg"} title="asd" channel="Bon Appetite" url={hash} />
+            <Thumbnail image={"https://huronelginwater.ca/wp-content/uploads/2019/03/test.jpg"} title="Test" channel="Hackathon" url={hash} />
           </Grid> : null}
 
         <Grid item>

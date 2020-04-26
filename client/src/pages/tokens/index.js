@@ -11,6 +11,9 @@ const styles = {
   },
   input: {
     color: "white"
+  },
+  TextField: {
+    color: "grey"
   }
 }
 
@@ -59,7 +62,7 @@ class Tokens extends React.Component{
       .then(response => response.text())
       .then(result => {
         console.log(result)
-        var raw = JSON.stringify({"wallet":"0x51Ff097f295FEa0066106C3A598c64fE3F9592A7"});
+        var raw = JSON.stringify({"wallet": this.props.wallet});
 
         var requestOptions = {
           method: 'POST',
@@ -88,13 +91,13 @@ class Tokens extends React.Component{
         <div className="tokens-form-div">
           <div className="text-fields">
             <div style={{fontSize : "25px", color : "white"}}>Donate:</div>
-            <TextField label="Address" id="one" color="secondary" className={classes.root}
+            <TextField className={classes.TextField} label="Address" id="one" color="secondary" className={classes.root}
             InputProps={{
               className: classes.input
             }}
             onChange={this.onChange1}
             />
-            <TextField label="Amount" id="two" color="secondary" className={classes.root}
+            <TextField className={classes.TextField} label="Amount" id="two" color="secondary" className={classes.root}
             InputProps={{
               className: classes.input
             }}
@@ -104,7 +107,7 @@ class Tokens extends React.Component{
           </div>
         </div>
         <div className="profile-tab-div">
-            <ProfileWidget amount={this.state.DTV}></ProfileWidget>
+            <ProfileWidget amount={this.state.DTV} wallet={this.props.wallet}></ProfileWidget>
         </div>
       </div>
     )

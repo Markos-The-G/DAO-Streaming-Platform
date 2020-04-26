@@ -147,6 +147,30 @@ class ModVid extends Component {
         // event.num = this.props.num
         // this.props.delete(event)
         document.getElementById(`hi${this.props.num}`).style.display = "none"
+        console.log(this.props.num)
+        if (this.props.num == 5){
+
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            var add = this.props.wallet;
+            var amount = 50
+            var raw = JSON.stringify({"wallet": add ,"amount": parseInt(amount)});
+        
+            var requestOptions = {
+              method: 'POST',
+              headers: myHeaders,
+              body: raw,
+              redirect: 'follow'
+            };
+        
+            fetch("http://localhost:3005/tokens/report", requestOptions)
+              .then(response => response.text())
+              .then(result => {
+                console.log(result)
+                        
+              })
+              .catch(error => console.log('error', error));
+        }
     }
 
 
@@ -304,7 +328,7 @@ class ModVid extends Component {
 
         return (
             <div className="indv-mod-vid-div" id={this.props.id}>
-                <Thumbnail image={this.props.image} />
+                <Thumbnail image={this.props.image}/>
                 <div className="mod-vid-form-div">
                     <div className="mod-vid-form">
                         <div className="checkbox-container">

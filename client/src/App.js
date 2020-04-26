@@ -4,6 +4,7 @@ import getWeb3 from "./getWeb3";
 
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom"
 
+import Logo from './assets/logo.svg';
 import Home from './pages/home'
 import Sidenav from './components/sidenav'
 import Upload from './pages/upload/index.js'
@@ -65,9 +66,6 @@ const styles = {
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    left: 0,
-    marginLeft: 0,
-    width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),
       width: 'auto',
@@ -109,7 +107,7 @@ const styles = {
 }
 
 class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, contract: null, notification: true };
+  state = { storageValue: 0, web3: null, accounts: null, contract: null, notification: true , notifications : [],notifNum : 0, id : ""};
 
   componentDidMount = async () => {
     try {
@@ -118,7 +116,8 @@ class App extends Component {
 
       // Use web3 to get the user's accounts.
       const accounts = await web3.eth.getAccounts();
-
+      console.log(accounts[0])
+      this.setState({id : accounts[0]})
       // Get the contract instance.
       const networkId = await web3.eth.net.getId();
       const deployedNetwork = SimpleStorageContract.networks[networkId];
@@ -160,6 +159,18 @@ class App extends Component {
     else {
       this.setState({ notification: false })
       document.getElementsByClassName("notification-div")[0].style.display = "flex"
+      if (this.state.notifNum == 0){
+        this.setState({notifications : ["You have received 50 DTV from completing the moderation session"]})
+      }
+      else if (this.state.notifNum == 1){
+        this.setState({notifications : ["You have donated 100 DTV"]})
+      }
+      else if (this.state.notifNum == 2){
+        this.setState({notifications : ["You have received 100 DTV"]})
+      }
+      this.setState((prevState) => ({
+        notifNum: prevState.notifNum + 1
+      }));
     }
   }
 
@@ -178,9 +189,10 @@ class App extends Component {
               <AppBar position="static">
                 <Toolbar className={classes.toolBar}>
                   <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                    <div style={{ width: "400px" }}>
-                      DAO.tv
-                  </div>
+                    <div style={{ width: "300px" , background: "blue"}}>
+                      <img className="logo" src={Logo}/>
+                      <span className="logo-text">DAO.tv</span>
+                    </div>
                   </Link>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <div style={{ height: "0px", display: "flex", alignItems: "center" }}>
@@ -211,7 +223,7 @@ class App extends Component {
                       </IconButton>
                     </div>
                   </div>
-                  <div style={{ width: "400px", display: "flex", justifyContent: "flex-end" }}>
+                  <div style={{ width: "300px", display: "flex", justifyContent: "flex-end" }}>
 
                     <Link to="/upload">
                       <IconButton>
@@ -263,11 +275,12 @@ class App extends Component {
               <AppBar position="static">
                 <Toolbar className={classes.toolBar}>
                   <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                    <div style={{ width: "400px" }}>
-                      DAO.tv
+                    <div style={{ width: "250px"}}>
+                      <img className="logo" src={Logo}/>
+                      <span className="logo-text">DAO.tv</span>
                     </div>
                   </Link>
-                  <div style={{ display: "flex", alignItems: "center" }}>
+                  <div style={{ display: "flex", alignItems: "center"}}>
                     <div style={{ height: "0px", display: "flex", alignItems: "center" }}>
                       <Link to="/">
                         <IconButton>
@@ -288,16 +301,29 @@ class App extends Component {
                         inputProps={{ 'aria-label': 'search' }}
                       />
                     </div>
-                    <div style={{ height: "0px", display: "flex", alignItems: "center" }}>
+                    <div style={{ height: "0px", display: "flex", alignItems: "center"}}>
                       <IconButton onClick={this.notification}>
                         <Badge badgeContent={4} color="error" overlap="circle" variant="dot">
                           <NotificationsIcon color="secondary"></NotificationsIcon>
                         </Badge>
                       </IconButton>
-                      <div className="notification-div" style={{ position: "absolute", display: "none", width: "300px", height: "500px", background: "white", top: "40px", marginLeft: "10px" }}>HELLO</div>
+                      <div className="notification-div" style={{ position: "absolute", display: "none", width: "300px", height: "500px", background: "white", top: "40px", marginLeft: "10px" }}>
+                        
+
+                        {this.state.notifications ? this.state.notifications.map(notif => {
+                          return ( <div className="notification">
+                                      <div className="notification-text">
+                                        {notif}
+                                        <div style={{width: "90%", height: "2px", background: "grey", marginTop : "15px"}}></div>
+                                      </div>
+                                    </div>)
+                        }) : null}
+                      
+                      
+                      </div>
                     </div>
                   </div>
-                  <div style={{ width: "400px", display: "flex", justifyContent: "flex-end" }}>
+                  <div style={{ width: "250px", display: "flex", justifyContent: "flex-end"}}>
 
                     <Link to="/upload">
                       <IconButton>
@@ -331,8 +357,8 @@ class App extends Component {
                 <Switch>
                   <Route path="/guidelines" component={Guidelines}></Route>
                   <Route path="/upload" component={Upload}></Route>
-                  <Route path="/moderation" component={Moderation}></Route>
-                  <Route path="/tokens" component={Tokens}></Route>
+                  <Route path="/moderation" > <Moderation wallet={this.state.id}></Moderation></Route>
+                  <Route path="/tokens"> <Tokens wallet={this.state.id}></Tokens></Route>
                   <Route path="/" component={Home}></Route>
                 </Switch>
               </div>
