@@ -59,8 +59,6 @@ class Upload extends Component {
   onSubmit = (event) => {
     // no refresh today
 
-    console.log("hi");
-
     event.preventDefault();
     console.log(this.state.ipfsHash)
     // getting the buffered file and uploading it to decentralized ipfs
@@ -72,7 +70,8 @@ class Upload extends Component {
       this.setState({
         ipfsHash: result[0].hash
       })
-      const nameVal = document.getElementById('name').value;
+      const nameVal = document.getElementById('title').value;
+      console.log(nameVal);
       if (this.state.ipfsJson === null) {
 
         let obj = {
@@ -92,7 +91,6 @@ class Upload extends Component {
           this.setState({
             ipfsJson: result[0].hash
           })
-          console.log("hi")
           console.log(this.state.ipfsJson);
 
           // markos route
@@ -163,6 +161,7 @@ class Upload extends Component {
 
   render() {
     return (
+
       <div className="upload-page">
         <div className="container">
           {this.state.buffer == null ?
@@ -186,8 +185,8 @@ class Upload extends Component {
               </div>
               <div>
                 <div className="upload-form-item">
-                  <label for="email">Title</label>
-                  <textarea id="email" rows="2" cols="50" value={this.state.title} onChange={this.handleTitleChange} name="title" type='text' />
+                  <label for="title">Title</label>
+                  <textarea id="title" rows="2" cols="50" value={this.state.title} onChange={this.handleTitleChange} name="title" type='text' />
                 </div>
               </div>
               <div>
@@ -197,9 +196,9 @@ class Upload extends Component {
                 </div>
               </div>
               <hr noshade />
-              <input disabled={this.state.title == null || this.state.description == null} onClick={this.onSubmit} value="Upload" className="upload-submit" type='submit' text='upload' />
+              <input className="upload-submit" type="submit" />
+              {/* <input disabled={this.state.title == null || this.state.description == null} onClick={this.onSubmit} value="Wow Kev" className="upload-submit" type='submit' text='upload' /> */}
             </form>
-
 
 
           }
