@@ -47,6 +47,7 @@ class ModVid extends Component {
                 privacy: false
             },
             ipfsJson: null,
+            title : this.props.title
         }
     }
 
@@ -56,6 +57,13 @@ class ModVid extends Component {
         data[field] = !data[field]
         this.setState({ data: data })
 
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState){
+        if(nextProps.title !== prevState.title){
+            return {title : nextProps.title}
+       }
+       else return null;
     }
 
     onSubmitYes = (event) => {
@@ -97,11 +105,16 @@ class ModVid extends Component {
                 }
                 let obj = String.fromCharCode.apply(null, result);
                 let new_obj = JSON.parse(obj);
+                console.log(new_obj)
+                
                 // var x = JSON.parse(JSON.stringify(obj));
                 console.log('newobj', new_obj);
                 console.log(this.props.title);
-                let currAmount = new_obj[this.props.title]["amount"];
-                let currScore = new_obj[this.props.title]["score"];
+
+                console.log("hihihi", new_obj[this.state.title]["amount"]);
+
+                let currAmount = new_obj[this.state.title]["amount"];
+                let currScore = new_obj[this.state.title]["score"];
                 currAmount += 1;
                 currScore += 1;
 
@@ -131,57 +144,9 @@ class ModVid extends Component {
             })
 
         }
-
-        // ipfs.cat('QmRp9NTNQGgrNN86Lvn86rFCyidaEk1b2H95x2grjopqxz', (err, result) => {
-        //     let obj = String.fromCharCode.apply(null, result);
-        //     let new_obj = JSON.parse(obj);
-
-        //     let score = 0;
-        //     let t = 0;
-        //     let f = 0;
-        //     TF.forEach((topic) => {
-        //         if (new_obj[title][topic]) {
-        //             t += 1;
-
-        //         } else {
-        //             f += 1;
-        //         }
-        //         console.log(new_obj[title][topic])
-        //     })
-        //     const score = t - f;
-        //     console.log()
-
-        // })
-
-        // ipfs.files.add()
-
-        let obj = {
-
-        }
-
-        // obj[title] = this.state.data;
-        // console.log("HELLO1")
-        // let buffer = Buffer.from(JSON.stringify(obj));
-        // console.log('buffer', buffer)
-        // console.log(obj)
-
-        // ipfs.files.add(buffer, (err, result) => {
-        //     if (err) {
-        //         console.log(err);
-        //     }
-
-        //     this.setState({
-        //         ipfsJson: result[0].hash
-        //     })
-
-        //     console.log(this.state.ipfsJson);
-
-        // })
-
-        // editing the current database
-
-        //PUT POST REQUEST HERE
-
+        // event.num = this.props.num
+        // this.props.delete(event)
+        document.getElementById(`hi${this.props.num}`).style.display = "none"
     }
 
 
@@ -189,7 +154,7 @@ class ModVid extends Component {
         event.preventDefault();
         // console.log(this.state.ipfsJson)
         const data = this.state.data;
-        const title = this.props.title;
+        const title = this.state.title;
 
         if (this.state.ipfsJson === null) {
 
@@ -307,7 +272,10 @@ class ModVid extends Component {
         // editing the current database
 
         //PUT POST REQUEST HERE
+        // event.num = this.props.num
 
+        // this.props.delete(event)
+        document.getElementById(`hi${this.props.num}`).style.display = "none"
     }
 
     quickcrap = (event) => {
@@ -335,7 +303,7 @@ class ModVid extends Component {
         const { classes } = this.props;
 
         return (
-            <div className="indv-mod-vid-div">
+            <div className="indv-mod-vid-div" id={this.props.id}>
                 <Thumbnail image={this.props.image} />
                 <div className="mod-vid-form-div">
                     <div className="mod-vid-form">

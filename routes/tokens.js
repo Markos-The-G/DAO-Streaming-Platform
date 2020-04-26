@@ -68,7 +68,7 @@ router.post('/report', async function (req, res, next) {
 router.post('/balance', async function (req, res, next) {
 	let balance = await contract.balanceOf(req.body.wallet)
 	var responseMessage = (`${req.body.wallet} has ${balance} tokens`)
-	res.send(responseMessage);
+	res.send(balance);
 });
 
 module.exports = router;

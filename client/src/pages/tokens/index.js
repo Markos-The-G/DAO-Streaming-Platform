@@ -19,7 +19,8 @@ class Tokens extends React.Component{
     super()
     this.state = {
       address : "",
-      amount : 0
+      amount : 0,
+      DTV : null
     }
   }
 
@@ -68,8 +69,13 @@ class Tokens extends React.Component{
         };
 
         fetch("http://localhost:3005/tokens/balance", requestOptions)
-          .then(response => response.text())
-          .then(result => console.log(result))
+          .then(response => response.json())
+          .then(result => {
+            console.log(result["_hex"])
+            var yourNumber = parseInt(result["_hex"], 16)
+            console.log(yourNumber)
+            this.setState({DTV : yourNumber})
+          })
           .catch(error => console.log('error', error));
       })
       .catch(error => console.log('error', error));
@@ -98,7 +104,7 @@ class Tokens extends React.Component{
           </div>
         </div>
         <div className="profile-tab-div">
-            <ProfileWidget></ProfileWidget>
+            <ProfileWidget amount={this.state.DTV}></ProfileWidget>
         </div>
       </div>
     )
