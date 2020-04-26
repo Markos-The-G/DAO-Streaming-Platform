@@ -16,7 +16,7 @@ function Feed(props) {
 
   return (
     <div className={classes.root}>
-      <Grid container direction="row" justify="center" spacing={2}>
+      <Grid container direction="row" justify="space-between" spacing={2}>
         <Grid item>
           <Thumbnail image={picture} title="example video" channel="oi mate" />
         </Grid>

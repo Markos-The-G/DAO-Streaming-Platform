@@ -4,7 +4,7 @@ var router = express.Router();
 const ethers = require('ethers');
 const projectID = "920def75f3a245e981a1d9b60033574a";
 //const web3 = new Web3('HTTP://127.0.0.1:7545')
-const contractAddress = '0x2bA68C2c416Bf71eb051eF0a68ABBD3366995601' // markos contract
+const contractAddress = '0x77D18AcBCCE4E846434482fc0DcbFfD5d1aC7DC4' // markos contract
 const contractABI = [
   {
     "constant": false,

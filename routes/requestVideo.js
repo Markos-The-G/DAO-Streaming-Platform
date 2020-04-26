@@ -9,7 +9,7 @@ const ipfsmini = new IPFS({ host: 'ipfs.infura.io', port: 5003, protocol: 'https
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var xhr = new XMLHttpRequest();
 
-const contractAddress = '0x2bA68C2c416Bf71eb051eF0a68ABBD3366995601' // markos contract
+const contractAddress = '0x77D18AcBCCE4E846434482fc0DcbFfD5d1aC7DC4' // markos contract
 const contractABI = [
   {
     "constant": false,

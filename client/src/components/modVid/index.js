@@ -58,22 +58,539 @@ class ModVid extends Component {
         var data = this.state.data
         data[field] = !data[field]
         this.setState({data : data})
-        // // console.log(this.state.data)
-        // let obj = {
-
-        // }
-        // let titleName = this.props.title;
-        // obj[titleName] = this.state.data;
-        // let buffer = Buffer.from(JSON.stringify(obj));
-
-        // this.setState({
-        //     buffer: buffer
-        // })
 
     }
 
     onSubmit = (event) => { 
 
+
+        // if (this.state.ipfsJson === null) {
+        //     const projectName = this.props.title;
+        //     let obj = {
+
+        //     }
+        //     console.log("test")
+
+        //     obj[projectName] = this.state.data;
+        //     console.log(obj)
+        //     let buffer = Buffer.from(JSON.stringify(obj));
+        //     console.log(buffer);
+
+        //     ipfs.files.add(buffer, (err, results) => {
+        //         if (err) {
+        //             console.log(err)
+        //         }
+        //         console.log(results[0].hash)
+        //     })
+
+        // } else {
+        //     console.log("else works?")
+        //     const url = "https://gateway.ipfs.io/ipfs/" + currentLink;
+            
+        //     ipfs.cat(url, (err, result) => {
+        //         if (err) {
+        //             console.log(err)
+        //             return
+        //         }
+        //         console.log(result);
+        //         let obj = String.fromCharCode.apply(null, result);
+        //         console.log(obj);
+        //         let new_obj = JSON.parse(obj);
+        //         // console.log(new_obj)
+        //         const projectName = this.props.title;
+        //         new_obj[projectName] = this.state.data;
+
+        //         let buffer = Buffer.from(JSON.stringify(new_obj));
+
+        //         ipfs.files.add(buffer, (err, result) => {
+        //             if (err) {
+        //                 console.log(err)
+        //                 return
+        //             }
+
+        //             this.setState({
+        //                 ipfsJson: result[0].hash
+        //             })
+
+        //             console.log(this.state.ipfsJson)
+
+        //             // markos route
+        //             var myHeaders = new Headers();
+        //             myHeaders.append("Content-Type", "application/json");
+
+        //             // var raw = JSON.stringify({"hash": this.state.ipfsJson});
+
+        //             // var requestOptions = {
+        //             //   method: 'POST',
+        //             //   headers: myHeaders,
+        //             //   body: raw,
+        //             //   redirect: 'follow'
+        //             // };
+
+        //             // fetch("http://localhost:3005/ballot", requestOptions)
+        //             //   .then(response => response.text())
+        //             //   .then(result => console.log(result))
+        //             //   .catch(error => console.log('error', error));
+
+        //         })
+
+        //     })
+
+        // }
+        // if (this.state.ipfsJson === null) {
+        //     const projectName = this.props.title;
+        //     let obj = {
+
+        //     }
+        //     console.log("test")
+
+        //     obj[projectName] = this.state.data;
+        //     console.log(obj)
+        //     let buffer = Buffer.from(JSON.stringify(obj));
+        //     console.log(buffer);
+
+        //     ipfs.files.add(buffer, (err, results) => {
+        //         if (err) {
+        //             console.log(err)
+        //         }
+        //         console.log(results[0].hash)
+        //     })
+
+        // } else {
+        //     console.log("else works?")
+        //     const url = "https://gateway.ipfs.io/ipfs/" + currentLink;
+            
+        //     ipfs.cat(url, (err, result) => {
+        //         if (err) {
+        //             console.log(err)
+        //             return
+        //         }
+        //         console.log(result);
+        //         let obj = String.fromCharCode.apply(null, result);
+        //         console.log(obj);
+        //         let new_obj = JSON.parse(obj);
+        //         // console.log(new_obj)
+        //         const projectName = this.props.title;
+        //         new_obj[projectName] = this.state.data;
+
+        //         let buffer = Buffer.from(JSON.stringify(new_obj));
+
+        //         ipfs.files.add(buffer, (err, result) => {
+        //             if (err) {
+        //                 console.log(err)
+        //                 return
+        //             }
+
+        //             this.setState({
+        //                 ipfsJson: result[0].hash
+        //             })
+
+        //             console.log(this.state.ipfsJson)
+
+        //             // markos route
+        //             var myHeaders = new Headers();
+        //             myHeaders.append("Content-Type", "application/json");
+
+        //             // var raw = JSON.stringify({"hash": this.state.ipfsJson});
+
+        //             // var requestOptions = {
+        //             //   method: 'POST',
+        //             //   headers: myHeaders,
+        //             //   body: raw,
+        //             //   redirect: 'follow'
+        //             // };
+
+        //             // fetch("http://localhost:3005/ballot", requestOptions)
+        //             //   .then(response => response.text())
+        //             //   .then(result => console.log(result))
+        //             //   .catch(error => console.log('error', error));
+
+        //         })
+
+        //     })
+
+        // }
+        // if (this.state.ipfsJson === null) {
+        //     const projectName = this.props.title;
+        //     let obj = {
+
+        //     }
+        //     console.log("test")
+
+        //     obj[projectName] = this.state.data;
+        //     console.log(obj)
+        //     let buffer = Buffer.from(JSON.stringify(obj));
+        //     console.log(buffer);
+
+        //     ipfs.files.add(buffer, (err, results) => {
+        //         if (err) {
+        //             console.log(err)
+
+        // if (this.state.ipfsJson === null) {
+        //     const projectName = this.props.title;
+        //     let obj = {
+
+        //     }
+        //     console.log("test")
+
+        //     obj[projectName] = this.state.data;
+        //     console.log(obj)
+        //     let buffer = Buffer.from(JSON.stringify(obj));
+        //     console.log(buffer);
+
+        //     ipfs.files.add(buffer, (err, results) => {
+        //         if (err) {
+        //             console.log(err)
+        //         }
+        //         console.log(results[0].hash)
+        //     })
+
+        // } else {
+        //     console.log("else works?")
+        //     const url = "https://gateway.ipfs.io/ipfs/" + currentLink;
+            
+        //     ipfs.cat(url, (err, result) => {
+        //         if (err) {
+        //             console.log(err)
+        //             return
+        //         }
+        //         console.log(result);
+        //         let obj = String.fromCharCode.apply(null, result);
+        //         console.log(obj);
+        //         let new_obj = JSON.parse(obj);
+        //         // console.log(new_obj)
+        //         const projectName = this.props.title;
+        //         new_obj[projectName] = this.state.data;
+
+        //         let buffer = Buffer.from(JSON.stringify(new_obj));
+
+        //         ipfs.files.add(buffer, (err, result) => {
+        //             if (err) {
+        //                 console.log(err)
+        //                 return
+        //             }
+
+        //             this.setState({
+        //                 ipfsJson: result[0].hash
+        //             })
+
+        //             console.log(this.state.ipfsJson)
+
+        //             // markos route
+        //             var myHeaders = new Headers();
+        //             myHeaders.append("Content-Type", "application/json");
+
+        //             // var raw = JSON.stringify({"hash": this.state.ipfsJson});
+
+        //             // var requestOptions = {
+        //             //   method: 'POST',
+        //             //   headers: myHeaders,
+        //             //   body: raw,
+        //             //   redirect: 'follow'
+        //             // };
+
+        //             // fetch("http://localhost:3005/ballot", requestOptions)
+        //             //   .then(response => response.text())
+        //             //   .then(result => console.log(result))
+        //             //   .catch(error => console.log('error', error));
+
+        //         })
+
+        //     })
+
+        // }
+        // if (this.state.ipfsJson === null) {
+        //     const projectName = this.props.title;
+        //     let obj = {
+
+        //     }
+        //     console.log("test")
+
+        //     obj[projectName] = this.state.data;
+        //     console.log(obj)
+        //     let buffer = Buffer.from(JSON.stringify(obj));
+        //     console.log(buffer);
+
+        //     ipfs.files.add(buffer, (err, results) => {
+        //         if (err) {
+        //             console.log(err)
+        //         }
+        //         console.log(results[0].hash)
+        //     })
+
+        // } else {
+        //     console.log("else works?")
+        //     const url = "https://gateway.ipfs.io/ipfs/" + currentLink;
+            
+        //     ipfs.cat(url, (err, result) => {
+        //         if (err) {
+        //             console.log(err)
+        //             return
+        //         }
+        //         console.log(result);
+        //         let obj = String.fromCharCode.apply(null, result);
+        //         console.log(obj);
+        //         let new_obj = JSON.parse(obj);
+        //         // console.log(new_obj)
+        //         const projectName = this.props.title;
+        //         new_obj[projectName] = this.state.data;
+
+        //         let buffer = Buffer.from(JSON.stringify(new_obj));
+
+        //         ipfs.files.add(buffer, (err, result) => {
+        //             if (err) {
+        //                 console.log(err)
+        //                 return
+        //             }
+
+        //             this.setState({
+        //                 ipfsJson: result[0].hash
+        //             })
+
+        //             console.log(this.state.ipfsJson)
+
+        //             // markos route
+        //             var myHeaders = new Headers();
+        //             myHeaders.append("Content-Type", "application/json");
+
+        //             // var raw = JSON.stringify({"hash": this.state.ipfsJson});
+
+        //             // var requestOptions = {
+        //             //   method: 'POST',
+        //             //   headers: myHeaders,
+        //             //   body: raw,
+        //             //   redirect: 'follow'
+        //             // };
+
+        //             // fetch("http://localhost:3005/ballot", requestOptions)
+        //             //   .then(response => response.text())
+        //             //   .then(result => console.log(result))
+        //             //   .catch(error => console.log('error', error));
+
+        //         })
+
+        //     })
+
+        // }
+        // if (this.state.ipfsJson === null) {
+        //     const projectName = this.props.title;
+        //     let obj = {
+
+        //     }
+        //     console.log("test")
+
+        //     obj[projectName] = this.state.data;
+        //     console.log(obj)
+        //     let buffer = Buffer.from(JSON.stringify(obj));
+        //     console.log(buffer);
+
+        //     ipfs.files.add(buffer, (err, results) => {
+        //         if (err) {
+        //             console.log(err)
+        //         }
+        //         console.log(results[0].hash)
+        //     })
+
+        // } else {
+        //     console.log("else works?")
+        //     const url = "https://gateway.ipfs.io/ipfs/" + currentLink;
+            
+        //     ipfs.cat(url, (err, result) => {
+        //         if (err) {
+        //             console.log(err)
+        //             return
+        //         }
+        //         console.log(result);
+        //         let obj = String.fromCharCode.apply(null, result);
+        //         console.log(obj);
+        //         let new_obj = JSON.parse(obj);
+        //         // console.log(new_obj)
+        //         const projectName = this.props.title;
+        //         new_obj[projectName] = this.state.data;
+
+        //         let buffer = Buffer.from(JSON.stringify(new_obj));
+
+        //         ipfs.files.add(buffer, (err, result) => {
+        //             if (err) {
+        //                 console.log(err)
+        //                 return
+        //             }
+
+        //             this.setState({
+        //                 ipfsJson: result[0].hash
+        //             })
+
+        //             console.log(this.state.ipfsJson)
+
+        //             // markos route
+        //             var myHeaders = new Headers();
+        //             myHeaders.append("Content-Type", "application/json");
+
+        //             // var raw = JSON.stringify({"hash": this.state.ipfsJson});
+
+        //             // var requestOptions = {
+        //             //   method: 'POST',
+        //             //   headers: myHeaders,
+        //             //   body: raw,
+        //             //   redirect: 'follow'
+        //             // };
+
+        //             // fetch("http://localhost:3005/ballot", requestOptions)
+        //             //   .then(response => response.text())
+        //             //   .then(result => console.log(result))
+        //             //   .catch(error => console.log('error', error));
+
+        //         })
+
+        //     })
+
+        // }
+        // if (this.state.ipfsJson === null) {
+        //     const projectName = this.props.title;
+        //     let obj = {
+
+        //     }
+        //     console.log("test")
+
+        //     obj[projectName] = this.state.data;
+        //     console.log(obj)
+        //     let buffer = Buffer.from(JSON.stringify(obj));
+        //     console.log(buffer);
+
+        //     ipfs.files.add(buffer, (err, results) => {
+        //         if (err) {
+        //             console.log(err)
+        //         }
+        //         console.log(results[0].hash)
+        //     })
+
+        // } else {
+        //     console.log("else works?")
+        //     const url = "https://gateway.ipfs.io/ipfs/" + currentLink;
+            
+        //     ipfs.cat(url, (err, result) => {
+        //         if (err) {
+        //             console.log(err)
+        //             return
+        //         }
+        //         console.log(result);
+        //         let obj = String.fromCharCode.apply(null, result);
+        //         console.log(obj);
+        //         let new_obj = JSON.parse(obj);
+        //         // console.log(new_obj)
+        //         const projectName = this.props.title;
+        //         new_obj[projectName] = this.state.data;
+
+        //         let buffer = Buffer.from(JSON.stringify(new_obj));
+
+        //         ipfs.files.add(buffer, (err, result) => {
+        //             if (err) {
+        //                 console.log(err)
+        //                 return
+        //             }
+
+        //             this.setState({
+        //                 ipfsJson: result[0].hash
+        //             })
+
+        //             console.log(this.state.ipfsJson)
+
+        //             // markos route
+        //             var myHeaders = new Headers();
+        //             myHeaders.append("Content-Type", "application/json");
+
+        //             // var raw = JSON.stringify({"hash": this.state.ipfsJson});
+
+        //             // var requestOptions = {
+        //             //   method: 'POST',
+        //             //   headers: myHeaders,
+        //             //   body: raw,
+        //             //   redirect: 'follow'
+        //             // };
+
+        //             // fetch("http://localhost:3005/ballot", requestOptions)
+        //             //   .then(response => response.text())
+        //             //   .then(result => console.log(result))
+        //             //   .catch(error => console.log('error', error));
+
+        //         })
+
+        //     })
+
+        // }
+        // if (this.state.ipfsJson === null) {
+        //     const projectName = this.props.title;
+        //     let obj = {
+
+        //     }
+        //     console.log("test")
+
+        //     obj[projectName] = this.state.data;
+        //     console.log(obj)
+        //     let buffer = Buffer.from(JSON.stringify(obj));
+        //     console.log(buffer);
+
+        //     ipfs.files.add(buffer, (err, results) => {
+        //         if (err) {
+        //             console.log(err)
+        //         }
+        //         console.log(results[0].hash)
+        //     })
+
+        // } else {
+        //     console.log("else works?")
+        //     const url = "https://gateway.ipfs.io/ipfs/" + currentLink;
+            
+        //     ipfs.cat(url, (err, result) => {
+        //         if (err) {
+        //             console.log(err)
+        //             return
+        //         }
+        //         console.log(result);
+        //         let obj = String.fromCharCode.apply(null, result);
+        //         console.log(obj);
+        //         let new_obj = JSON.parse(obj);
+        //         // console.log(new_obj)
+        //         const projectName = this.props.title;
+        //         new_obj[projectName] = this.state.data;
+
+        //         let buffer = Buffer.from(JSON.stringify(new_obj));
+
+        //         ipfs.files.add(buffer, (err, result) => {
+        //             if (err) {
+        //                 console.log(err)
+        //                 return
+        //             }
+
+        //             this.setState({
+        //                 ipfsJson: result[0].hash
+        //             })
+
+        //             console.log(this.state.ipfsJson)
+
+        //             // markos route
+        //             var myHeaders = new Headers();
+        //             myHeaders.append("Content-Type", "application/json");
+
+        //             // var raw = JSON.stringify({"hash": this.state.ipfsJson});
+
+        //             // var requestOptions = {
+        //             //   method: 'POST',
+        //             //   headers: myHeaders,
+        //             //   body: raw,
+        //             //   redirect: 'follow'
+        //             // };
+
+        //             // fetch("http://localhost:3005/ballot", requestOptions)
+        //             //   .then(response => response.text())
+        //             //   .then(result => console.log(result))
+        //             //   .catch(error => console.log('error', error));
+
+        //         })
+
+        //     })
+
+        // }
         // if (this.state.ipfsJson === null) {
         //     const projectName = this.props.title;
         //     let obj = {

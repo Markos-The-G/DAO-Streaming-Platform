@@ -285,7 +285,7 @@ class App extends Component {
                             <NotificationsIcon color="secondary"></NotificationsIcon>
                           </Badge>
                       </IconButton>
-                      <div className="notification-div" style={{position: "absolute", opacity : "0",  width: "200px", height : "600px" , background: "white" , top : "40px", marginLeft : "10px"}}>HELLO</div>
+                      <div className="notification-div" style={{position: "absolute", opacity : "0",  width: "300px", height : "500px" , background: "white" , top : "40px", marginLeft : "10px"}}>HELLO</div>
                     </div>
                   </div>
                   <div style={{width: "300px", display: "flex", justifyContent : "flex-end"}}>
