@@ -48,10 +48,10 @@ let customHttpProvider = new ethers.providers.JsonRpcProvider(url);
 
 let contract = new ethers.Contract(contractAddress, contractABI, customHttpProvider.getSigner(0));
 
-router.get('/', async function (req, res, next) {
+router.post('/', async function (req, res, next) {
   let currentValue = await contract.get()
   let vidName = req.body.name;
-  
+
   var raw = "";
 
   var requestOptions = {
@@ -59,16 +59,16 @@ router.get('/', async function (req, res, next) {
     body: raw,
     redirect: 'follow'
   };
-  
+
   const url = "https://gateway.ipfs.io/ipfs/" + currentValue
 
   var data = "";
 
   var xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
-  
-  xhr.addEventListener("readystatechange", function() {
-    if(this.readyState === 4) {
+
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
       console.log(this.responseText);
 
       let wdata = this.responseText;
@@ -80,10 +80,10 @@ router.get('/', async function (req, res, next) {
       res.send(vidHash)
     }
   });
-  
-   xhr.open("GET", url);
-  
-   xhr.send(data);
+
+  xhr.open("GET", url);
+
+  xhr.send(data);
 
 });
 

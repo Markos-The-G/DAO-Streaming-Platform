@@ -9,6 +9,7 @@ import Sidenav from './components/sidenav'
 import Upload from './pages/upload/index.js'
 import Moderation from './pages/moderation'
 import Guidelines from './pages/guidelines';
+import Tokens from './pages/tokens';
 
 import { fade, withStyles, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -29,6 +30,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import GavelIcon from '@material-ui/icons/Gavel';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 import "./App.css";
 
@@ -63,6 +65,7 @@ const styles = {
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
+    left: 0,
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -175,7 +178,7 @@ class App extends Component {
               <AppBar position="static">
                 <Toolbar className={classes.toolBar}>
                   <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                    <div style={{ width: "300px" }}>
+                    <div style={{ width: "400px" }}>
                       DAO.tv
                   </div>
                   </Link>
@@ -208,7 +211,7 @@ class App extends Component {
                       </IconButton>
                     </div>
                   </div>
-                  <div style={{ width: "300px", display: "flex", justifyContent: "flex-end" }}>
+                  <div style={{ width: "400px", display: "flex", justifyContent: "flex-end" }}>
 
                     <Link to="/upload">
                       <IconButton>
@@ -225,8 +228,13 @@ class App extends Component {
                         <GavelIcon color="secondary" />
                       </IconButton>
                     </Link>
+                    <Link to="/tokens">
+                      <IconButton>
+                        <AttachMoneyIcon color="secondary" />
+                      </IconButton>
+                    </Link>
                     <IconButton>
-                      <AccountCircleIcon color="secondary"></AccountCircleIcon>
+                      <AccountCircleIcon color="secondary" />
                     </IconButton>
 
                   </div>
@@ -236,6 +244,7 @@ class App extends Component {
                 {/*<Sidenav></Sidenav>*/}
                 <Switch>
                   <Route path="/guidelines" component={Guidelines}></Route>
+                  <Route path="/tokens" component={Tokens}></Route>
                   <Route path="/upload" component={Upload}></Route>
                   <Route path="/moderation" component={Moderation}></Route>
                   <Route path="/" component={Home}></Route>
@@ -254,7 +263,7 @@ class App extends Component {
               <AppBar position="static">
                 <Toolbar className={classes.toolBar}>
                   <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                    <div style={{ width: "300px" }}>
+                    <div style={{ width: "400px" }}>
                       DAO.tv
                     </div>
                   </Link>
@@ -288,7 +297,7 @@ class App extends Component {
                       <div className="notification-div" style={{ position: "absolute", display: "none", width: "300px", height: "500px", background: "white", top: "40px", marginLeft: "10px" }}>HELLO</div>
                     </div>
                   </div>
-                  <div style={{ width: "300px", display: "flex", justifyContent: "flex-end" }}>
+                  <div style={{ width: "400px", display: "flex", justifyContent: "flex-end" }}>
 
                     <Link to="/upload">
                       <IconButton>
@@ -305,6 +314,11 @@ class App extends Component {
                         <GavelIcon color="secondary" />
                       </IconButton>
                     </Link>
+                    <Link to="/tokens">
+                      <IconButton>
+                        <AttachMoneyIcon color="secondary" />
+                      </IconButton>
+                    </Link>
                     <IconButton>
                       <AccountCircleIcon color="secondary"></AccountCircleIcon>
                     </IconButton>
@@ -318,6 +332,7 @@ class App extends Component {
                   <Route path="/guidelines" component={Guidelines}></Route>
                   <Route path="/upload" component={Upload}></Route>
                   <Route path="/moderation" component={Moderation}></Route>
+                  <Route path="/tokens" component={Tokens}></Route>
                   <Route path="/" component={Home}></Route>
                 </Switch>
               </div>

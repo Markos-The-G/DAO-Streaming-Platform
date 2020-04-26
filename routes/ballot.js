@@ -52,11 +52,12 @@ router.post('/', async function (req, res, next) {
   // res.send(currentHash);
 });
 
-router.post('/getReports', async function (req, res, next) {
-  let currentValue = await contract.get(r)
+//gets the current DB hash
+router.get('/getReports', async function (req, res, next) {
+  let currentValue = await contract.get()
 
   const finalResult = ("DB: ", currentValue)
-res.send(finalResult);
+  res.send(finalResult);
   // res.send(currentHash);
 });
 

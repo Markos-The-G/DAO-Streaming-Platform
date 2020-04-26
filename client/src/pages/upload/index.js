@@ -58,8 +58,11 @@ class Upload extends Component {
 
   onSubmit = (event) => {
     // no refresh today
-    event.preventDefault();
 
+    console.log("hi");
+
+    event.preventDefault();
+    console.log(this.state.ipfsHash)
     // getting the buffered file and uploading it to decentralized ipfs
     ipfs.files.add(this.state.buffer, (err, result) => {
       if (err) {
@@ -89,7 +92,7 @@ class Upload extends Component {
           this.setState({
             ipfsJson: result[0].hash
           })
-
+          console.log("hi")
           console.log(this.state.ipfsJson);
 
           // markos route
@@ -174,7 +177,7 @@ class Upload extends Component {
               />
               <span className="message">Upload Files</span>
             </div> :
-            <form className="upload-form">
+            <form className="upload-form" onSubmit={this.onSubmit}>
               <h3>Details</h3>
               <div className="video-file">
                 <div>Filename</div>
@@ -194,20 +197,23 @@ class Upload extends Component {
                 </div>
               </div>
               <hr noshade />
-              <input value="Upload" className="upload-submit" type='submit' text='upload' />
+              <input disabled={this.state.title == null || this.state.description == null} onClick={this.onSubmit} value="Upload" className="upload-submit" type='submit' text='upload' />
             </form>
+
+
+
           }
         </div>
-
-        <form onSubmit={this.onSubmit}>
-          <input type='file' onChange={this.onFilesAdded} />
-          <input type='submit' />
-          <input type='text' id='name' />
-        </form>
       </div>
     );
-
   }
 }
 
-export default Upload;  
+/*
+<form onSubmit={this.onSubmit}>
+  <input type='file' onChange={this.onFilesAdded} />
+  <input type='submit' />
+  <input type='text' id='name' />
+</form>
+*/
+export default Upload;
