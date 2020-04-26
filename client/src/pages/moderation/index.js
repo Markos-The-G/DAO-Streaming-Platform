@@ -11,7 +11,7 @@ class Moderation extends Component {
             title : ["hi" ,"Pastry Chef Attempts to Make Gourmet Cadbury Creme Eggs", "Navy SEAL Jocko Willink Breaks Down Combat Scenes From Movies | GQ", "Fluffy Goes To India | Gabriel Iglesias", "Times I Plagiarized", "How Offshore Oil Rigs Work", "Want a Corgi? 7 things you don't know!", "Coronavirus outbreak: Doug Ford gets choked up discussing his mother-in-law's COVID-19 case", "Cute and Funny Cat Videos to Keep You Smiling! 🐱", "Revolution 1917 - WWI Documentaries", "How Dogs (Eventually) Became Our Best Friends"]
         }
     }
-
+    
     delete = (e) => {
         console.log(e.num)
         var array = this.state.array
